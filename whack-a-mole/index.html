@@ -2,14 +2,15 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hammer Game!</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script>
         let timeRemaining = 3;          // Amount of time remaining for the countdown
 
-        let timeToShowMonster = 2000   // Amount of time to show the monster
-        let timeToHideMonster = 2000;   // Amount of time to hide the monster
+        let timeToShowMonster = 1000   // Amount of time to show the monster
+        let timeToHideMonster = 1000;   // Amount of time to hide the monster
 
         let removeMonster;         // Timeout id for hiding the monster
 
@@ -24,6 +25,7 @@
                 console.log("Game Over!");
                 // $("#game-area").hide();
                 $("#gameover").fadeIn(1000);
+                $("#replay").fadeIn(1000);
                 return;
             }
 
@@ -53,6 +55,7 @@
 
         function startGame() {
             // Hide the countdown timer
+            $("#monster").hide();
             $("#countdown").fadeOut(300);
             // Show the monster the first time
             $("#game-area").show();
@@ -93,6 +96,21 @@
             $("#countdown").html(timeRemaining);
             countdown();
         });
+
+        function replay() {
+            timeRemaining = 3;
+            timeToShowMonster = 2000;
+            timeToHideMonster = 2000;
+            life = 3;
+            $("#game-area").hide();
+            $("#gameover").hide();
+            $("#countdown").show();
+            $("#bg-monster").show();
+            clearTimeout(removeMonster);
+            $("#replay").hide();
+            countdown();
+        }
+
     </script>
 
     <!-- This is the font returned from Google font -->
@@ -141,7 +159,7 @@
         #game-area {
             width: 90vmin;
             height: 90vmin;
-            margin: 10vmin auto;
+            margin: 10vh auto;
             display: none;
         }
 
@@ -181,7 +199,7 @@
             top: 10px;
             width: 5rem;
             text-align: center;
-
+            
         }
 
         #home {
@@ -189,11 +207,23 @@
             left: 10px;
             text-decoration: none;
         }
+
+        #replay {
+            color: red;
+            right: 10px;
+            display: none;
+        }
+
     </style>
 </head>
 
 <body>
+
+    <!-- The gameover screen -->
+    <div id="gameover">Game Over</div>
+
     <a id="home" class="nav_button" href="../index.html">Home</a>
+    <div id="replay" class="nav_button" onclick="replay()">Replay</div>
 
     <!-- This div contains all holes -->
     <div id="game-area">
@@ -215,9 +245,6 @@
     <img id="bg-monster" src="nomore.png" alt="Nomore monster">
     <div id="countdown">countdown timer here</div>
 
-
-    <!-- The gameover screen -->
-    <div id="gameover">Game Over</div>
 </body>
 
 </html>
