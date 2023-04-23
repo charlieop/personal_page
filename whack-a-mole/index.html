@@ -7,14 +7,22 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script>
-        let timeRemaining = 3;          // Amount of time remaining for the countdown
+        let game_init = {
+            timeRemaining: 3,
+            timeToShowMonster: 1000,
+            timeToHideMonster: 1000,
+            life: 3
+        }
 
-        let timeToShowMonster = 1000   // Amount of time to show the monster
-        let timeToHideMonster = 1000;   // Amount of time to hide the monster
+
+        let timeRemaining = game_init.timeRemaining;          // Amount of time remaining for the countdown
+
+        let timeToShowMonster = game_init.timeToShowMonster;   // Amount of time to show the monster
+        let timeToHideMonster = game_init.timeToHideMonster;   // Amount of time to hide the monster
 
         let removeMonster;         // Timeout id for hiding the monster
 
-        let life = 3;                   // The player's life
+        let life = game_init.life;                   // The player's life
 
         function hideMonster() {
             // Change the life and the colour of the holes
@@ -98,16 +106,19 @@
         });
 
         function replay() {
-            timeRemaining = 3;
-            timeToShowMonster = 2000;
-            timeToHideMonster = 2000;
-            life = 3;
+            timeRemaining = game_init.timeRemaining;
+            timeToShowMonster = game_init.timeToShowMonster;
+            timeToHideMonster = game_init.timeToHideMonster;
+            life = game_init.life;
+
             $("#game-area").hide();
             $("#gameover").hide();
+            $("#monster").off("click");
             $("#countdown").show();
             $("#bg-monster").show();
             clearTimeout(removeMonster);
             $("#replay").hide();
+            console.log("restart!");
             countdown();
         }
 
