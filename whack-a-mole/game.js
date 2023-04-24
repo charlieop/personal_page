@@ -62,15 +62,9 @@ function init(){
     let name1 = parseInt(Math.random()*num) + 2;
     let name2 = parseInt(Math.random()*num) + 2;
     let name3 = parseInt(Math.random()*num) + 2;
-    while (name1 == name2){
-        name2 = parseInt(Math.random()*num) + 2;
-    }
-    while (name1 == name3 || name2 == name3){
-        name3 = parseInt(Math.random()*num) + 2;
-    }
-    $("#2").attr("src", "./img/nomore" + name1 + ".png");
-    $("#3").attr("src", "./img/nomore" + name2 + ".png");
-    $("#4").attr("src", "./img/nomore" + name3 + ".png");
+    $("#2").attr("src", "./img/nomore/nomore" + name1 + ".png");
+    $("#3").attr("src", "./img/nomore/nomore" + name2 + ".png");
+    $("#4").attr("src", "./img/nomore/nomore" + name3 + ".png");
 
     $("#bg-monster").fadeIn(500);
     $("#bg-monster").css("left", "calc(50vw - 47.5vmin)");
@@ -224,6 +218,10 @@ function showMonster(monster) {
     while ($($(".hole")[pos]).children().length > 0){
         console.log("reroll");
         pos = parseInt(Math.random() * 9);
+    }
+    if (score > 50){
+        let name = "./img/nomore/nomore" + (parseInt(Math.random()*game_init.numOfPic) + 2) + ".png";
+        monster.attr("src", name);
     }
     monster.appendTo($(".hole")[pos]);
     // Show the monster
@@ -455,5 +453,7 @@ function replay() {
     $("#replay").hide();
     $("#start-page").show();
     $("#start").html("Play again!");
+    let name = "./img/nomore/nomore" + (parseInt(Math.random()*game_init.numOfPic) + 2) + ".png";
+    $("#bg-monster").attr("src", name);
 
 }
