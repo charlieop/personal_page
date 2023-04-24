@@ -1,5 +1,5 @@
 * {
-    cursor: url("./hammer.png") 10 55, default;
+    cursor: url("./img/hammer.png") 10 55, default;
     box-sizing: border-box;
     font-family: 'Gloria Hallelujah', cursive;
     -moz-user-select: none;
@@ -152,6 +152,18 @@ body {
     margin-top: -7%;
     margin-left: -10%;
 }
+
+#bomb, #heart {
+    background: initial;
+    display: none;
+    width: 100%;
+}
+
+#bomb {
+    margin-top: -3%;
+    margin-left: 3%;
+}
+
 
 #bg-monster {
     position: absolute;

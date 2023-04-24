@@ -1,8 +1,8 @@
 
 let game_init = {
     timeRemaining: 3,
-    timeToShowMonster: 2000,
-    timeToHideMonster: 2000,
+    timeToShowMonster: 1000,
+    timeToHideMonster: 1000000,
     life: 3,
     bg_color: "#FFF0F5",
 }
@@ -12,9 +12,12 @@ let timeToShowMonster = game_init.timeToShowMonster;   // Amount of time to show
 let timeToHideMonster = game_init.timeToHideMonster;   // Amount of time to hide the monster
 
 let removeMonster = {};      // Timeout id for hiding the monster
+let bombTime;
+let heartTime;
 
 let life = game_init.life;      // The player's life
 let score = 0;      // The player's score
+
 
 
 $(document).ready(function () {
@@ -50,6 +53,10 @@ function init(){
     $("#3").hide();
     $("#4").appendTo("#game-aera");
     $("#4").hide();
+    $("#bomb").appendTo($("game-aera"));
+    $("#bomb").hide();
+    $("#heart").appendTo($("game-aera"));
+    $("#heart").hide();
 
     $("#bg-monster").fadeIn(500);
     $("#bg-monster").css("left", "calc(50vw - 47.5vmin)");
@@ -130,6 +137,55 @@ function startGame() {
                 hole.css("background", "rgba(255, 248, 220, 0.9)");
             }, 50);
         }
+        else if ($(event.target).attr("id") == "bomb"){
+            $("#bomb").appendTo($("game-aera"));
+            $("#bomb").hide();
+            score -= 30;
+            // change life and check game status
+            life -= 1;
+            switch (life){
+                case 3:
+                    $("#misses").html("🟢 🟢 🟢");
+                    break;
+                case 2:
+                    $("#misses").html("❌ 🟢 🟢");
+                    break;
+                case 1:
+                    $("#misses").html("❌ ❌ 🟢");
+                    break;
+                default:
+                    // If the game is over show the game over screen
+                    gameOver();
+                    return;
+            }
+        }
+        else if ($(event.target).attr("id") == "heart"){
+            if (life < 4){
+                life += 1;
+            }
+            else{
+                score += 10;
+                $("#score").html(score);
+            }
+            switch (life){
+                case 4:
+                    $("#misses").html("🌟 🟢 🟢");
+                    break;
+                case 3:
+                    $("#misses").html("🟢 🟢 🟢");
+                    break;
+                case 2:
+                    $("#misses").html("❌ 🟢 🟢");
+                    break;
+                case 1:
+                    $("#misses").html("❌ ❌ 🟢");
+                    break;
+                default:
+                    // If the game is over show the game over screen
+                    gameOver();
+                    return;
+            }
+        }
         else {
             console.log(event);
             console.log(event.target);
@@ -183,6 +239,9 @@ function hideMonster(monster) {
     // change life and check game status
     life -= 1;
     switch (life){
+        case 3:
+            $("#misses").html("🟢 🟢 🟢");
+            break;
         case 2:
             $("#misses").html("❌ 🟢 🟢");
             break;
@@ -201,6 +260,49 @@ function hideMonster(monster) {
     setTimeout(showMonster, timeToShowMonster, monster);
 }
 
+function showBomb(){
+    console.log("bomb appear");
+    let pos = parseInt(Math.random() * 9);
+    while ($($(".hole")[pos]).children().length > 0){
+        console.log("reroll");
+        pos = parseInt(Math.random() * 9);
+    }
+    $("#bomb").appendTo($(".hole")[pos]);
+    // Show the bomb
+    $("#bomb").fadeIn(100);
+
+    // hide bomb
+    setTimeout(() => {
+        $("#bomb").appendTo($("game-aera"));
+        $("#bomb").hide();
+    }, 3000);
+    bombTime = setTimeout(() => {
+        showBomb();
+    }, (8000 + parseInt(Math.random() * 10)*1000));
+}
+
+function showHeart(){
+    console.log("heart appear");
+    let pos = parseInt(Math.random() * 9);
+    while ($($(".hole")[pos]).children().length > 0){
+        console.log("reroll");
+        pos = parseInt(Math.random() * 9);
+    }
+    $("#heart").appendTo($(".hole")[pos]);
+    // Show the heart
+    $("#heart").fadeIn(100);
+
+    // hide heart
+    setTimeout(() => {
+        $("#heart").appendTo($("game-aera"));
+        $("#heart").hide();
+    }, 1500);
+    heartTime = setTimeout(() => {
+        showBomb();
+    }, (30000 + parseInt(Math.random() * 100)*500));
+}
+
+
 function changeDiff() {
     switch (score) {
         case 10:
@@ -211,6 +313,10 @@ function changeDiff() {
             console.log("monster 3 appear!");
             setTimeout(showMonster, timeToShowMonster, $("#3"));
             break;
+        case 100:
+            console.log("bomb and heart appear!");
+            bombTime = setTimeout(showBomb, 1000);
+            heartTime = setTimeout(showHeart, (parseInt(Math.random() * 40)*500));
         case 500:
             console.log("monster 4 appear!");
             setTimeout(showMonster, timeToShowMonster, $("#4"));
@@ -305,11 +411,11 @@ function changeDiff() {
             timeToHideMonster = 2000;
             break;
         case score > 3:
-            timeToShowMonster = 1000 + parseInt(Math.random()*20) * 100;
+            timeToShowMonster = 1000 + parseInt(Math.random()*15) * 100;
             timeToHideMonster = 2000;
             break;
         default:
-            timeToShowMonster = 1000 + parseInt(Math.random()*30) * 100;
+            timeToShowMonster = 1000 + parseInt(Math.random()*20) * 100;
             timeToHideMonster = 2000;
             break;
     }
@@ -323,6 +429,10 @@ function gameOver(){
     clearTimeout(removeMonster[2]);
     clearTimeout(removeMonster[3]);
     clearTimeout(removeMonster[4]);
+    clearTimeout(bombTime);
+    clearTimeout(heartTime);
+
+
 
 
     $("#bg-monster").hide();
