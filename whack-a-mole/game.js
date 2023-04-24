@@ -141,6 +141,13 @@ function startGame() {
             $("#bomb").appendTo($("game-aera"));
             $("#bomb").hide();
             score -= 30;
+            let hole = $(".hole");
+            hole.css("transition", "none");
+            hole.css("background", "red");
+            setTimeout( () => {
+                hole.css("transition", "background 0.5s ease-in-out");
+                hole.css("background", "rgba(255, 248, 220, 0.9)");
+            }, 50);
             // change life and check game status
             life -= 1;
             switch (life){
@@ -167,6 +174,13 @@ function startGame() {
                 score += 10;
                 $("#score").html(score);
             }
+            let hole = $(".hole");
+            hole.css("transition", "none");
+            hole.css("background", "green");
+            setTimeout( () => {
+                hole.css("transition", "background 0.2s ease-in-out");
+                hole.css("background", "rgba(255, 248, 220, 0.9)");
+            }, 50);
             switch (life){
                 case 4:
                     $("#misses").html("🌟 🟢 🟢");
@@ -187,10 +201,7 @@ function startGame() {
             }
         }
         else {
-            console.log(event);
-            console.log(event.target);
             monster = $(event.target);
-            console.log(monster.attr("id"));
             monster.hide();
             score += 1;
             $("#score").html(score);
@@ -204,6 +215,7 @@ function startGame() {
             }, 50);
     
             clearTimeout(removeMonster[monster.attr("id")]);
+            monster.appendTo("#game-area");
             setTimeout(showMonster, timeToShowMonster, monster);
             changeDiff();
         }
@@ -255,7 +267,7 @@ function hideMonster(monster) {
     }
     // Hide the monster
     monster.hide();
-    console.log(life);
+    monster.appendTo("#game-area");
     // Show the monster later again
     setTimeout(showMonster, timeToShowMonster, monster);
 }
@@ -298,7 +310,7 @@ function showHeart(){
         $("#heart").hide();
     }, 1500);
     heartTime = setTimeout(() => {
-        showBomb();
+        showHeart();
     }, (30000 + parseInt(Math.random() * 100)*500));
 }
 
@@ -317,6 +329,7 @@ function changeDiff() {
             console.log("bomb and heart appear!");
             bombTime = setTimeout(showBomb, 1000);
             heartTime = setTimeout(showHeart, (parseInt(Math.random() * 40)*500));
+            break;
         case 500:
             console.log("monster 4 appear!");
             setTimeout(showMonster, timeToShowMonster, $("#4"));
