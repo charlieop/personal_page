@@ -8,6 +8,7 @@ body {
     margin: 0;
     padding: 0;
     background: #FFF0F5;
+    transition: background 3s ease-in-out;
 }
 
 /* Set the common style for the countdown and gameover divs */
@@ -134,11 +135,12 @@ body {
 }
 
 /* - Set the style of the monster image */
-#monster {
+.monster {
     background: initial;
     display: none;
-    width: 100%;
-    margin: 0;
+    width: 120%;
+    margin-top: -10%;
+    margin-left: -10%;
 }
 
 #bg-monster {

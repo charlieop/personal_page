@@ -17,7 +17,7 @@
     <div id="start-page">
         <p id="title1">Catch</p>
         <p id="title2">Boo!!!</p>
-        <div id="start" onclick="countdown()">Start Game!</div>
+        <div id="start" onclick="init()">Start Game!</div>
     </div>
 
     <!-- The gameover screen -->
@@ -31,8 +31,6 @@
         <div id="score-area">Current Score: <span id="score">0</span></div>
         <div id="misses">🟢 🟢 🟢</div>
         <div class="hole">
-            <!-- This is the monster -->
-            <img id="monster" src="nomore.png" alt="Nomore monster">
         </div>
         <div class="hole"></div>
         <div class="hole"></div>
@@ -42,6 +40,10 @@
         <div class="hole"></div>
         <div class="hole"></div>
         <div class="hole"></div>
+        <img class="monster" id="1" src="nomore.png" alt="Nomore monster">
+        <img class="monster" id="2" src="nomore.png" alt="Nomore monster">
+        <img class="monster" id="3" src="nomore.png" alt="Nomore monster">
+
     </div>
 
     <!-- The countdown screen -->
