@@ -48,6 +48,8 @@ function init(){
     $("#3").appendTo("#game-aera");
     $("#2").hide();
     $("#3").hide();
+    $("#4").appendTo("#game-aera");
+    $("#4").hide();
 
     $("#bg-monster").fadeIn(500);
     $("#bg-monster").css("left", "calc(50vw - 47.5vmin)");
@@ -206,6 +208,10 @@ function changeDiff() {
             console.log("monster 3 appear!");
             setTimeout(showMonster, timeToShowMonster, $("#3"));
             break;
+        case 500:
+            console.log("monster 4 appear!");
+            setTimeout(showMonster, timeToShowMonster, $("#4"));
+            break;
         // change bg color
         case 11:
             $("body").css("background", "#E5CCFF");
@@ -235,7 +241,7 @@ function changeDiff() {
             $("body").css("background", "#F39292");
             break;
         case 401:
-            $("body").css("background", "#007AF3");
+            $("body").css("background", "#4169e1");
             break;
         case 501:
             $("body").css("background", "#698B22");
@@ -251,7 +257,7 @@ function changeDiff() {
         break;
     }
     switch (true) {
-        case score > 500:
+        case score > 600:
             timeToShowMonster = 100 + parseInt(Math.random()*60) * 10;
             timeToHideMonster = 1100;
             break;
@@ -309,6 +315,8 @@ function gameOver(){
     clearTimeout(removeMonster[1]);
     clearTimeout(removeMonster[2]);
     clearTimeout(removeMonster[3]);
+    clearTimeout(removeMonster[4]);
+
 
     $("#bg-monster").hide();
     $("#misses").hide();
