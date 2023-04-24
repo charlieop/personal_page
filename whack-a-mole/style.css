@@ -1,6 +1,15 @@
 * {
     box-sizing: border-box;
     font-family: 'Gloria Hallelujah', cursive;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    /*
+      Introduced in Internet Explorer 10.
+      See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
+    */
+    -ms-user-select: none;
+    user-select: none;
 }
 
 /* This is the style of the body element */
@@ -139,7 +148,7 @@ body {
     background: initial;
     display: none;
     width: 120%;
-    margin-top: -10%;
+    margin-top: -7%;
     margin-left: -10%;
 }
 

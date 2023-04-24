@@ -223,19 +223,45 @@ function changeDiff() {
             $("body").css("background", "#C3F3DB");
             break;
         case 111:
-            $("body").css("background", "#C3F3C3");
-            break;
-        case 151:
             $("body").css("background", "#8AE68A");
             break;
-        case 201:
-            $("body").css("background", "#5CE65C");
+        case 151:
+            $("body").css("background", "#F3F392");
             break;
+        case 201:
+            $("body").css("background", "#F8C795");
+            break;
+        case 301:
+            $("body").css("background", "#F39292");
+            break;
+        case 401:
+            $("body").css("background", "#007AF3");
+            break;
+        case 501:
+            $("body").css("background", "#698B22");
+            break;
+        case 701:
+            $("body").css("background", "#CD950C");
+            break;
+        case 901:
+            $("body").css("background", "#9F79EE");
+            break;
+        case 1001:
+        $("body").css("background", "#F88D00");
+        break;
     }
     switch (true) {
+        case score > 500:
+            timeToShowMonster = 100 + parseInt(Math.random()*60) * 10;
+            timeToHideMonster = 1300;
+            break;
+        case score > 300:
+            timeToShowMonster = 150 + parseInt(Math.random()*30) * 10;
+            timeToHideMonster = 1300;
+            break;
         case score > 200:
             timeToShowMonster = 200 + parseInt(Math.random()*30) * 10;
-            timeToHideMonster = 1200;
+            timeToHideMonster = 1300;
             break;
         case score > 150:
             timeToShowMonster = 300 + parseInt(Math.random()*60) * 10;
