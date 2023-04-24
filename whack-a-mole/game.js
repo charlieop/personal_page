@@ -118,7 +118,10 @@ function startGame() {
             let hole = $(event.currentTarget);
             hole.css("transition", "none");
             hole.css("background", "#F08080");
-            if (score > 0){
+            if (score > 100){
+                score -= 10;
+            }
+            else if (score > 0){
                 score -= 1;
             }
             $("#score").html(score);
@@ -257,6 +260,10 @@ function changeDiff() {
         break;
     }
     switch (true) {
+        case score > 900:
+            timeToShowMonster = 50 + parseInt(Math.random()*100) * 10;
+            timeToHideMonster = 1000;
+            break;
         case score > 600:
             timeToShowMonster = 100 + parseInt(Math.random()*60) * 10;
             timeToHideMonster = 1100;
@@ -311,6 +318,10 @@ function changeDiff() {
 function gameOver(){
     console.log("Game Over!");
     console.log(removeMonster);
+
+    if ($("#gameover").css("display" != "none")){
+        return;
+    }
 
     clearTimeout(removeMonster[1]);
     clearTimeout(removeMonster[2]);
