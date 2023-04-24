@@ -5,6 +5,7 @@ let game_init = {
     timeToHideMonster: 1000000,
     life: 3,
     bg_color: "#FFF0F5",
+    numOfPic: 14,
 }
 
 let timeRemaining = game_init.timeRemaining;          // Amount of time remaining for the countdown
@@ -17,7 +18,6 @@ let heartTime;
 
 let life = game_init.life;      // The player's life
 let score = 0;      // The player's score
-
 
 
 $(document).ready(function () {
@@ -58,6 +58,20 @@ function init(){
     $("#heart").appendTo($("game-aera"));
     $("#heart").hide();
 
+    let num = game_init.numOfPic
+    let name1 = parseInt(Math.random()*num) + 2;
+    let name2 = parseInt(Math.random()*num) + 2;
+    let name3 = parseInt(Math.random()*num) + 2;
+    while (name1 == name2){
+        name2 = parseInt(Math.random()*num) + 2;
+    }
+    while (name1 == name3 || name2 == name3){
+        name3 = parseInt(Math.random()*num) + 2;
+    }
+    $("#2").attr("src", "./img/nomore" + name1 + ".png");
+    $("#3").attr("src", "./img/nomore" + name2 + ".png");
+    $("#4").attr("src", "./img/nomore" + name3 + ".png");
+
     $("#bg-monster").fadeIn(500);
     $("#bg-monster").css("left", "calc(50vw - 47.5vmin)");
     $("#bg-monster").css("bottom", "-8vmin");
@@ -97,28 +111,6 @@ function startGame() {
     // - Hide the monster
     // - Adjust the monster time
     // - Show the monster later again
-
-    // $(".monster").on("tap click", function (event) {
-    //     monster = $(event.currentTarget);
-    //     console.log(monster.attr("id"));
-    //     monster.hide();
-    //     score += 1;
-    //     $("#score").html(score);
-    //     // change color of the clicked hole
-    //     let hole = monster.parent();
-    //     hole.css("transition", "none");
-    //     hole.css("background", "#90EE90");
-    //     setTimeout( () => {
-    //         hole.css("transition", "background 0.2s ease-in-out");
-    //         hole.css("background", "rgba(255, 248, 220, 0.9)");
-    //     }, 50);
-
-    //     clearTimeout(removeMonster[monster.attr("id")]);
-    //     setTimeout(showMonster, timeToShowMonster, monster);
-    //     // changeDiff();
-
-    // });
-
     // change the color of a block if no monster in it
     $(".hole").on("tap click", (event) => {
         if ( event.currentTarget == event.target){
@@ -446,9 +438,6 @@ function gameOver(){
     clearTimeout(removeMonster[4]);
     clearTimeout(bombTime);
     clearTimeout(heartTime);
-
-
-
 
     $("#bg-monster").hide();
     $("#misses").hide();
