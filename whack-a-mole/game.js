@@ -319,10 +319,6 @@ function gameOver(){
     console.log("Game Over!");
     console.log(removeMonster);
 
-    if ($("#gameover").css("display" != "none")){
-        return;
-    }
-
     clearTimeout(removeMonster[1]);
     clearTimeout(removeMonster[2]);
     clearTimeout(removeMonster[3]);
