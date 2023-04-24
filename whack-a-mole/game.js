@@ -458,5 +458,11 @@ function gameOver(){
 }
 
 function replay() {
-    init();
+    $("#game-area").hide();
+    $("#gameover").hide();
+    $("#bg-monster").hide();
+    $("#replay").hide();
+    $("#start-page").show();
+    $("#start").html("Play again!");
+
 }
