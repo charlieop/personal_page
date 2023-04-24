@@ -1,4 +1,5 @@
 * {
+    cursor: url("./hammer.png") 10 55, default;
     box-sizing: border-box;
     font-family: 'Gloria Hallelujah', cursive;
     -moz-user-select: none;

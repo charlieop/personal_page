@@ -253,11 +253,11 @@ function changeDiff() {
     switch (true) {
         case score > 500:
             timeToShowMonster = 100 + parseInt(Math.random()*60) * 10;
-            timeToHideMonster = 1300;
+            timeToHideMonster = 1100;
             break;
         case score > 300:
             timeToShowMonster = 150 + parseInt(Math.random()*30) * 10;
-            timeToHideMonster = 1300;
+            timeToHideMonster = 1200;
             break;
         case score > 200:
             timeToShowMonster = 200 + parseInt(Math.random()*30) * 10;
