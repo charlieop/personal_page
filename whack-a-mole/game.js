@@ -167,12 +167,14 @@ function startGame() {
             }
         }
         else if ($(event.target).attr("id") == "heart"){
+            $("#heart").appendTo($("game-aera"));
+            $("#heart").hide();
             if (life < 4){
                 life += 1;
             }
-            else{
-                score += 10;
-                $("#score").html(score);
+            else if (score > 500){
+                    score += 10;
+                    $("#score").html(score);
             }
             let hole = $(".hole");
             hole.css("transition", "none");
@@ -290,7 +292,7 @@ function showBomb(){
     }, 3000);
     bombTime = setTimeout(() => {
         showBomb();
-    }, (8000 + parseInt(Math.random() * 10)*1000));
+    }, (10000 + parseInt(Math.random() * 50)*1000));
 }
 
 function showHeart(){
@@ -311,7 +313,7 @@ function showHeart(){
     }, 1500);
     heartTime = setTimeout(() => {
         showHeart();
-    }, (30000 + parseInt(Math.random() * 100)*500));
+    }, (60000 + parseInt(Math.random() * 100)*1000));
 }
 
 
