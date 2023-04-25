@@ -13,6 +13,7 @@ let timeToShowMonster = game_init.timeToShowMonster;   // Amount of time to show
 let timeToHideMonster = game_init.timeToHideMonster;   // Amount of time to hide the monster
 
 let removeMonster = {};      // Timeout id for hiding the monster
+
 let bombTime;
 let heartTime;
 
@@ -23,6 +24,7 @@ $(document).ready(function () {
     // Start the countdown screen
     console.log("page ready");
     $("#countdown-text").html(timeRemaining);
+    $(document).css("crusor", "url(\"./img/hammer.png\") 10 55, default");
     // monitor input for game-area
     const gamepad = document.getElementById("game-area");
     gamepad.addEventListener("touchstart", onClick);
@@ -94,8 +96,8 @@ function countdown() {
 }
 
 function onClick(event) {
-    console.log(event.target)
     if (event.target.className == "hole"){
+        console.log("clicked: hole");
         if (score > 100){
             score -= 10;
         }
@@ -113,14 +115,17 @@ function onClick(event) {
         }, 50);
     }
     else if (event.target.id == "bomb"){
+        console.log("clicked: bomb");
+
         $("#bomb").appendTo($("game-aera"));
         $("#bomb").hide();
 
         score -= 30;
         $("#score").html(score);
         life -= 1;
-        updateLife();
-
+        if (!updateLife()){
+            return;
+        }
         let hole = $(".hole");
         hole.css("transition", "none");
         hole.css("background", "red");
@@ -130,6 +135,8 @@ function onClick(event) {
         }, 50);
     }
     else if (event.target.id == "heart"){
+        console.log("clicked: heart");
+
         $("#heart").appendTo($("game-aera"));
         $("#heart").hide();
 
@@ -151,10 +158,10 @@ function onClick(event) {
         }, 50);
     }
     else if (event.target.className == "monster") {
+        console.log("clicked: monster");
+
         monster = $(event.target);
         monster.hide();
-        clearTimeout(removeMonster[monster.attr("id")]);
-        monster.appendTo("#game-area");
 
         score += 1;
         $("#score").html(score);
@@ -167,9 +174,14 @@ function onClick(event) {
             hole.css("transition", "background 0.2s ease-in-out");
             hole.css("background", "rgba(255, 248, 220, 0.9)");
         }, 50);
-
+        
+        clearTimeout(removeMonster[monster.attr("id")]);
+        monster.appendTo("#game-area");
         setTimeout(showMonster, timeToShowMonster, monster);
         changeDiff();
+    }
+    else {
+        console.log("clicked: else");
     }
 }
 
@@ -177,20 +189,20 @@ function updateLife(){
     switch (life){
         case 4:
             $("#misses").html("🌟 🟢 🟢");
-            break;
+            return true;
         case 3:
             $("#misses").html("🟢 🟢 🟢");
-            break;
+            return true;
         case 2:
             $("#misses").html("❌ 🟢 🟢");
-            break;
+            return true;
         case 1:
             $("#misses").html("❌ ❌ 🟢");
-            break;
+            return true;
         default:
             // If the game is over show the game over screen
             gameOver();
-            return;
+            return false;
     }
 }
 
@@ -236,7 +248,9 @@ function hideMonster(monster) {
         }, 50);
     // change life and check game status
     life -= 1;
-    updateLife();
+    if (!updateLife()){
+        return;
+    }
     // Hide the monster
     monster.hide();
     monster.appendTo("#game-area");
@@ -405,8 +419,6 @@ function changeDiff() {
 
 function gameOver(){
     console.log("Game Over!");
-    console.log(removeMonster);
-
     clearTimeout(removeMonster[1]);
     clearTimeout(removeMonster[2]);
     clearTimeout(removeMonster[3]);
