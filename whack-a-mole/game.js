@@ -5,7 +5,7 @@ let game_init = {
     timeToHideMonster: 1000000,
     life: 3,
     bg_color: "#FFF0F5",
-    numOfPic: 14,
+    numOfPic: 15,
 }
 
 let timeRemaining = game_init.timeRemaining;          // Amount of time remaining for the countdown
@@ -68,7 +68,7 @@ function init(){
     $("#heart").appendTo($("game-aera"));
     $("#heart").hide();
 
-    let num = game_init.numOfPic
+    let num = game_init.numOfPic - 1;
     let name1 = parseInt(Math.random()*num) + 2;
     let name2 = parseInt(Math.random()*num) + 2;
     let name3 = parseInt(Math.random()*num) + 2;
@@ -232,7 +232,7 @@ function showMonster(monster) {
         pos = parseInt(Math.random() * 9);
     }
     if (score > 50){
-        let name = "./img/nomore/nomore" + (parseInt(Math.random()*game_init.numOfPic) + 2) + ".png";
+        let name = "./img/nomore/nomore" + (parseInt(Math.random()*game_init.numOfPic) + 1) + ".png";
         monster.attr("src", name);
     }
     monster.appendTo($(".hole")[pos]);
