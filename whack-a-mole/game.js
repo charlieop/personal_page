@@ -27,8 +27,14 @@ $(document).ready(function () {
     $(document).css("crusor", "url(\"./img/hammer.png\") 10 55, default");
     // monitor input for game-area
     const gamepad = document.getElementById("game-area");
-    gamepad.addEventListener("touchstart", onClick);
-    gamepad.addEventListener("click", onClick);
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        // true for mobile device
+        gamepad.addEventListener("touchstart", onClick);
+    }
+    else{
+        // false for not mobile device
+        gamepad.addEventListener("click", onClick);
+    }
 });
 
 function init(){
