@@ -5,12 +5,15 @@ let game_init = {
     timeToHideMonster: 1000000,
     life: 3,
     bg_color: "#FFF0F5",
+    border_color:"black",
     numOfPic: 15,
 }
 
 let timeRemaining = game_init.timeRemaining;          // Amount of time remaining for the countdown
 let timeToShowMonster = game_init.timeToShowMonster;   // Amount of time to show the monster
 let timeToHideMonster = game_init.timeToHideMonster;   // Amount of time to hide the monster
+let bombReappearTime;
+let heartReappearTime;
 
 let removeMonster = {};      // Timeout id for hiding the monster
 
@@ -43,6 +46,8 @@ function init(){
     timeToShowMonster = game_init.timeToShowMonster;
     timeToHideMonster = game_init.timeToHideMonster;
     life = game_init.life;
+    heartReappearTime = 70000;
+    bombReappearTime = 10000;
     updateLife();
     removeMonster = {};
     score = 0;
@@ -55,6 +60,7 @@ function init(){
     $("#countdown").show();
 
     $("body").css("background", game_init.bg_color);
+    $(".hole").css("border-color", game_init.border_color);
     $("#score").html(0);
 
     $("#2").appendTo("#game-aera");
@@ -105,7 +111,7 @@ function onClick(event) {
     if (event.target.className == "hole"){
         console.log("clicked: hole");
         if (score > 100){
-            score -= 10;
+            score -= Math.max(10, parseInt(0.05 * score));
         }
         else if (score > 0){
             score -= 1;
@@ -126,7 +132,7 @@ function onClick(event) {
         $("#bomb").appendTo($("game-aera"));
         $("#bomb").hide();
 
-        score -= 30;
+        score -= Math.max(30, parseInt(0.1 * score));
         $("#score").html(score);
         life -= 1;
         if (!updateLife()){
@@ -149,8 +155,8 @@ function onClick(event) {
         if (life < 4){
             life += 1;
         }
-        else if (score > 500){
-                score += 10;
+        else {
+                score += 1;
                 $("#score").html(score);
         }
         updateLife();
@@ -237,7 +243,7 @@ function showMonster(monster) {
     }
     monster.appendTo($(".hole")[pos]);
     // Show the monster
-    monster.fadeIn(100);
+    monster.fadeIn(50);
     // Hide the monster later
     removeMonster[monster.attr("id")] = setTimeout(hideMonster, timeToHideMonster, monster);
 }
@@ -281,7 +287,7 @@ function showBomb(){
     }, 3000);
     bombTime = setTimeout(() => {
         showBomb();
-    }, (10000 + parseInt(Math.random() * 50)*1000));
+    }, (bombReappearTime + parseInt(Math.random() * 50)*1000));
 }
 
 function showHeart(){
@@ -298,10 +304,10 @@ function showHeart(){
     setTimeout(() => {
         $("#heart").appendTo($("game-aera"));
         $("#heart").hide();
-    }, 1500);
+    }, 1100);
     heartTime = setTimeout(() => {
         showHeart();
-    }, (60000 + parseInt(Math.random() * 100)*1000));
+    }, (heartReappearTime + parseInt(Math.random() * 100)*1000));
 }
 
 function changeDiff() {
@@ -339,6 +345,9 @@ function changeDiff() {
         case 81:
             $("body").css("background", "#C3F3DB");
             break;
+        case 101:
+            // $(".hole").css("border-color", "#483D8B")
+            break;
         case 111:
             $("body").css("background", "#8AE68A");
             break;
@@ -355,6 +364,7 @@ function changeDiff() {
             $("body").css("background", "#4169e1");
             break;
         case 501:
+            // $(".hole").css("border-color", "#8B0000")
             $("body").css("background", "#698B22");
             break;
         case 701:
@@ -364,8 +374,9 @@ function changeDiff() {
             $("body").css("background", "#9F79EE");
             break;
         case 1001:
-        $("body").css("background", "#F88D00");
-        break;
+            $("body").css("background", "#F88D00");
+            $(".hole").css("border-color", "#FFD700")
+            break;
     }
     switch (true) {
         case score > 900:

@@ -142,8 +142,10 @@ body {
     /* display: flex; */
     float: left;
     background-color: rgba(255, 248, 220, 0.9);
-    border: 5px black solid;
+    border: 5px  solid;
+    border-color: black;
     border-radius: 20px;
+    transition: border-color 3s ease-in-out;
 }
 
 /* - Set the style of the monster image */
