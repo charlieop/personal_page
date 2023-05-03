@@ -113,7 +113,7 @@ body {
 #score-area {
     text-align: center;
     width: 100%;
-    font-size: max(4.5vh, 24pt);
+    font-size: max(4.2vh, 22pt);
     position: relative;
     top: -7vh;
 }
