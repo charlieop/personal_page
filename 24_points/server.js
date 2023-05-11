@@ -239,6 +239,6 @@ io.on("connection", (socket) => {
 })
 
 
-httpServer.listen(80, () => {
+httpServer.listen(10001, () => {
     console.log("The server has started");
 });
