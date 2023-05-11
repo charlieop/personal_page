@@ -6,7 +6,9 @@ const Socket = (function() {
     };
 
     const init = function() {
-        socket = io();
+        socket = io({
+            path: "/socket.io/24_points"
+          });
 
         socket.on("connect", () => {
             console.log("conection established with server");

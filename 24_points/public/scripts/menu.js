@@ -59,7 +59,7 @@ const Menu = (function() {
             console.log("create room");
             $("#room-options").toggle();
 
-            fetch("/createRoom", {
+            fetch("/24_points/createRoom", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -100,7 +100,7 @@ const Menu = (function() {
             }
             $("#input-code").val("");
 
-            fetch("/joinRoom", {
+            fetch("/24_points/joinRoom", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

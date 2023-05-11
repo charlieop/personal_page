@@ -8,7 +8,9 @@ const path = require('path');
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer);
+const io = new Server(httpServer, {
+    path: "/socket.io/24_points"
+  });
 
 // session settings
 const chatSession = session({
@@ -41,11 +43,12 @@ function makeid(length) {
 }
 
 // server the main page
-app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/24_points/public', express.static(path.join(__dirname, 'public')))
 app.use(express.json());
 
 // handels requests
-app.post("/createRoom", (req, res) => {
+app.post("/24_points/createRoom", (req, res) => {
+    console.log("receieved request");
     let id;
     do {
         id = makeid(4);
@@ -70,7 +73,7 @@ app.post("/createRoom", (req, res) => {
     res.json({status: "success", roomCode: id});
 })
 
-app.post("/joinRoom", (req, res) => {
+app.post("/24_points/joinRoom", (req, res) => {
     if (req.body.code in rooms) {
         let room = rooms[req.body.code];
         if (room.started){
