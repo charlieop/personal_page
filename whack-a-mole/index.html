@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"
+    />
     <title>Hammer Game!</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
     <script src="./game.js"></script>
 
     <!-- This is the font returned from Google font -->
-    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-</head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<body scroll="no">
+  <body scroll="no">
     <div id="start-page">
-        <p id="title1">Catch</p>
-        <p id="title2">Boo!!!</p>
-        <div id="start" onclick="init()">Start Game!</div>
+      <p id="title1">Catch</p>
+      <p id="title2">Boo!!!</p>
+      <div id="start" onclick="init()">Start Game!</div>
     </div>
 
     <!-- The gameover screen -->
@@ -28,30 +38,49 @@
 
     <!-- This div contains all holes -->
     <div id="game-area">
-        <div id="score-area">Current Score: <span id="score">0</span></div>
-        <div id="misses">🟢 🟢 🟢</div>
-        <div class="hole">
-        </div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <div class="hole"></div>
-        <img class="monster" id="1" src="./img/nomore/nomore.png" alt="Nomore monster">
-        <img class="monster" id="2" src="./img/nomore/nomore.png" alt="Nomore monster">
-        <img class="monster" id="3" src="./img/nomore/nomore.png" alt="Nomore monster">
-        <img class="monster" id="4" src="./img/nomore/nomore.png" alt="Nomore monster">
-        <img id="bomb" src="./img/bomb.png" alt="Bomb">
-        <img id="heart" src="./img/heart.png" alt="Heart">
+      <div id="score-area">Current Score: <span id="score">0</span></div>
+      <div id="misses">🟢 🟢 🟢</div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <div class="hole"></div>
+      <img
+        class="monster"
+        id="1"
+        src="./img/nomore/nomore.png"
+        alt="Nomore monster"
+      />
+      <img
+        class="monster"
+        id="2"
+        src="./img/nomore/nomore.png"
+        alt="Nomore monster"
+      />
+      <img
+        class="monster"
+        id="3"
+        src="./img/nomore/nomore.png"
+        alt="Nomore monster"
+      />
+      <img
+        class="monster"
+        id="4"
+        src="./img/nomore/nomore.png"
+        alt="Nomore monster"
+      />
+      <img id="bomb" src="./img/bomb.png" alt="Bomb" />
+      <img id="heart" src="./img/heart.png" alt="Heart" />
     </div>
 
     <!-- The countdown screen -->
-    <img id="bg-monster" src="./img/nomore/nomore.png" alt="Nomore monster">
-    <div id="countdown"><span id="countdown-text">countdown timer here</span></div>
-
-</body>
-
+    <img id="bg-monster" src="./img/nomore/nomore.png" alt="Nomore monster" />
+    <div id="countdown">
+      <span id="countdown-text">countdown timer here</span>
+    </div>
+  </body>
 </html>

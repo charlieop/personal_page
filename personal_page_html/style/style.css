@@ -1,0 +1,58 @@
+:root {
+  --title-font: Ubuntu, serif;
+  --text-font: Ubuntu, serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: var(--text-font);
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 2rem 1fr 2rem;
+  grid-template-areas:
+    "header header  header"
+    ".      main    ."
+    "footer footer  footer";
+}
+
+header {
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+.logo-wrapper {
+  display: flex;
+}
+
+.main-navigator > ul {
+  display: flex;
+}
+
+.main-navigator > ul > li {
+  margin: 0 0.5em 0;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  /* display: flex; */
+}

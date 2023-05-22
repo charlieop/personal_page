@@ -1,3 +1,3 @@
 $(document).ready(function () {
-    Menu.init();
+  Menu.init();
 });

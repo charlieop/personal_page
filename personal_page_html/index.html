@@ -1,291 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+    />
+
+    <link rel="stylesheet" type="text/css" href="./style/style.css" />
+
     <title>Charlie Chan</title>
-</head>
+  </head>
 
-<body>
-    <div class="header-wrapper">
-        <header>
-            <div class="logo-img">
-                <a href="../"><img src="my-logo.jpg" alt="logo for the site" width="40px" height="40px"></a>
+  <body>
+    <header>
+      <div class="logo-wrapper">
+        <div class="logo-img">
+          <a href="../"
+            ><img
+              src="my-logo.jpg"
+              alt="logo for the site"
+              width="40px"
+              height="40px"
+          /></a>
+        </div>
+        <span class="site-name">Charlieop's site</span>
+      </div>
+      <div class="nav-wrapper">
+        <nav class="main-navigator">
+          <ul>
+            <li>
+              <a href="../"><span>Home</span></a>
+            </li>
+            <li>
+              <a href="#about-me-section"><span>About Me</span></a>
+            </li>
+            <li>
+              <a href="#skills-section"><span>Skills</span></a>
+            </li>
+            <li>
+              <a href="#education-and-activities-section"
+                ><span>Education &amp; Activities</span></a
+              >
+            </li>
+            <li>
+              <a href="#downloads-section"><span>Downloads</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="lang-wrapper">
+        <nav class="language-selector">
+          <ul>
+            <li><span>EN</span></li>
+            <li>
+              <a href=""><span lang="zh-cmn-hans">简体中文</span></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="title-section">
+        <h1>Hi, call me <span class="name">Charlie</span>!</h1>
+      </section>
+      <hr />
+      <section id="about-me-section">
+        <h2>About Me</h2>
+        <div class="photo">
+          <img
+            src=""
+            width="240px"
+            height="320px"
+            alt="this is a photo of me"
+          />
+        </div>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
+          obcaecati necessitatibus fugit soluta neque ipsam cumque itaque,
+          doloremque repudiandae commodi?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quia
+          labore tempora nam excepturi autem rem expedita tempore eaque odit!
+          Perspiciatis, obcaecati assumenda autem dicta quasi vitae provident,
+          consectetur nesciunt quisquam qui maxime soluta magni repudiandae
+          asperiores veniam. Nemo ducimus facere excepturi animi natus et
+          laboriosam similique alias necessitatibus error.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
+          illum?
+        </p>
+      </section>
+      <hr />
+      <section id="skills-section">
+        <h2>Skills</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
+          ipsum nesciunt accusantium soluta nihil! Vero reprehenderit nobis
+          atque facilis incidunt.
+        </p>
+        <div class="skills-list">
+          <ul>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">Python</span>
+                <span class="skill-score">90</span>
+                <span class="skill-discription"
+                  >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Obcaecati, mollitia.</span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">C++</span>
+                <span class="skill-score">75</span>
+                <span class="skill-discription"
+                  >Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Obcaecati, mollitia.</span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">MIPS</span>
+                <span class="skill-score">50</span>
+                <span class="skill-discription"
+                  >It is a very basic <strong>Assembly Language</strong>,
+                  strange hunh?</span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-score">30</span>
+                <span class="skill-discription"
+                  >Well... As you can see I am still learning it right now...
+                  Don't expect so much but I'll be good at it some day.</span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">Photography</span>
+                <span class="skill-score">0</span>
+                <span class="skill-discription"
+                  >Accroading to one of my friends:
+                  <q cite="my friend">It's a <em>nightmare!</em></q>
+                  but at least I want to improve it if possible :)</span
+                >
+              </div>
+            </li>
+            <li>
+              <div class="skill-item">
+                <span class="skill-name">Drive</span>
+                <span class="skill-score">70</span>
+                <span class="skill-discription"
+                  >Oh yeah, I got a <strong>C1</strong> driving license! I was
+                  always hoping for a road trip with my friends.</span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <hr />
+      <section id="education-and-activities-section">
+        <h2>Education &amp; Activities</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tenetur,
+          nobis cupiditate cumque excepturi minus vel voluptatem asperiores
+          dolorem, pariatur debitis assumenda maiores labore beatae nulla sint
+          aliquam architecto sapiente.
+        </p>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2021-09-01">2021 - 2025</time>
             </div>
-            <span class="site-name">Charlieop's site</span>
-            <div class="nav-wrapper">
-                <nav class="main-navigator">
-                    <ul>
-                        <li><a href="../"><span>Home</span></a></li>
-                        <li><a href="#about-me-section"><span>About Me</span></a></li>
-                        <li><a href="#skills-section"><span>Skills</span></a></li>
-                        <li><a href="#education-and-activities-section"><span>Education &amp; Activities</span></a></li>
-                        <li><a href="#downloads-section"><span>Downloads</span></a></li>
-                    </ul>
-                </nav>
+            <div class="timeline-img">
+              <img
+                src="https://hkust.edu.hk/sites/default/files/images/UST_L3.svg"
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
             </div>
-            <div class="nav-wrapper">
-                <nav class="language-selector">
-                    <ul>
-                        <li><span>EN</span></li>
-                        <li><a href=""><span lang="zh-cmn-hans">简体中文</span></a></li>
-                    </ul>
-                </nav>
+            <div class="timeline-content">
+              <h6 class="timeline-title">HKUST UG student</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
+                minus porro, nesciunt perferendis explicabo a ducimus tempore
+                accusamus adipisci culpa. Molestiae labore consequuntur eius
+                maiores non dignissimos corporis sed deserunt.
+              </p>
             </div>
-        </header>
-    </div>
-    <div class="main-wrapper">
-        <main>
-            <section id="title-section">
-                <h1>Hi, call me <span class="name">Charlie</span>!</h1>
-            </section>
-            <hr>
-            <section id="about-me-section">
-                <h2>About Me</h2>
-                <div class="photo">
-                    <img src="" width="240px" height="320px" alt="this is a photo of me">
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione obcaecati necessitatibus fugit
-                    soluta neque ipsam cumque itaque, doloremque repudiandae commodi?</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur quia labore tempora nam excepturi
-                    autem rem expedita tempore eaque odit! Perspiciatis, obcaecati assumenda autem dicta quasi vitae
-                    provident, consectetur nesciunt quisquam qui maxime soluta magni repudiandae asperiores veniam. Nemo
-                    ducimus facere excepturi animi natus et laboriosam similique alias necessitatibus error.</p>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores, illum?</p>
-            </section>
-            <hr>
-            <section id="skills-section">
-                <h2>Skills</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi ipsum nesciunt accusantium soluta
-                    nihil! Vero reprehenderit nobis atque facilis incidunt.</p>
-                <div class="skills-list">
-                    <ul>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">Python</span>
-                                <span class="skill-score">90</span>
-                                <span class="skill-discription">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Obcaecati, mollitia.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">C++</span>
-                                <span class="skill-score">75</span>
-                                <span class="skill-discription">Lorem ipsum, dolor sit amet consectetur adipisicing
-                                    elit. Obcaecati, mollitia.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">MIPS</span>
-                                <span class="skill-score">50</span>
-                                <span class="skill-discription">It is a very basic <strong>Assembly Language</strong>,
-                                    strange hunh?</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">HTML5</span>
-                                <span class="skill-score">30</span>
-                                <span class="skill-discription">Well... As you can see I am still learning it right
-                                    now... Don't expect so much but I'll be good at it some day.</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">Photography</span>
-                                <span class="skill-score">0</span>
-                                <span class="skill-discription">Accroading to one of my friends: <q
-                                        cite="my friend">It's a <em>nightmare!</em></q> but at least I want to improve
-                                    it if possible :)</span>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="skill-item">
-                                <span class="skill-name">Drive</span>
-                                <span class="skill-score">70</span>
-                                <span class="skill-discription">Oh yeah, I got a <strong>C1</strong> driving license! I
-                                    was always hoping for a road trip with my friends.</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <hr>
-            <section id="education-and-activities-section">
-                <h2>Education &amp; Activities</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit tenetur, nobis cupiditate cumque
-                    excepturi minus vel voluptatem asperiores dolorem, pariatur debitis assumenda maiores labore beatae
-                    nulla sint aliquam architecto sapiente.</p>
-                <ol class="timeline">
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="2021-09-01">2021 - 2025</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="https://hkust.edu.hk/sites/default/files/images/UST_L3.svg"
-                                alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">HKUST UG student</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-                                minus porro, nesciunt perferendis explicabo a ducimus tempore accusamus adipisci culpa.
-                                Molestiae labore consequuntur eius maiores non dignissimos corporis sed deserunt.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="2021-09-01">2021-2023</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">SAGA IT Group</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-                                deserunt animi eaque provident blanditiis est, ullam adipisci neque fuga aperiam ratione
-                                porro iure, ipsum natus recusandae officiis accusamus amet tempore.</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="">xxxx-xx-xx</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">Lorem ipsum dolor sit</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                                culpa exercitationem alias sequi fugiat asperiores voluptatem! Nesciunt asperiores
-                                libero, illo fugiat non eum a provident autem dolorem inventore eaque est!</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="">xxxx-xx-xx</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">Lorem ipsum dolor</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                                culpa exercitationem alias sequi fugiat asperiores voluptatem! Nesciunt asperiores
-                                libero, illo fugiat non eum a provident autem dolorem inventore eaque est! Lorem ipsum
-                                dolor, sit amet consectetur adipisicing elit. Iure, sunt!</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="">xxxx-xx-xx</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">Lorem ipsum dolor sit usiv</h6>
-                            <p class="timeline-text">Lorem ipsum consectetur adipisicing elit. Facere culpa
-                                exercitationem asperiores voluptatem! Nesciunt asperiores libero, autem dolorem
-                                inventore eaque est!</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="">xxxx-xx-xx</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">Dolor Sit</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-                                ipsum dolor sit amet, consectetur adipisicing elit. Autem quidem magnam quam maiores
-                                exercitationem sit error saepe nobis adipisci numquam! Facere culpa exercitationem alias
-                                sequi fugiat asperiores voluptatem! Nesciunt asperiores libero. Illo fugiat non eum a
-                                provident autem dolorem inventore eaque est!</p>
-                        </div>
-                    </li>
-                    <li class="timeline-item">
-                        <div class="timeline-date">
-                            <time datetime="">xxxx-xx-xx</time>
-                        </div>
-                        <div class="timeline-img">
-                            <img src="" alt="It is a picture for this timeline block" height="100px" width="100px">
-                        </div>
-                        <div class="timeline-content">
-                            <h6 class="timeline-title">Lorem ipsum dolor sit</h6>
-                            <p class="timeline-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-                                culpa exercitationem alias sequi fugiat asperiores voluptatem! Nesciunt asperiores
-                                libero, illo fugiat non eum a provident autem dolorem inventore eaque est!</p>
-                        </div>
-                    </li>
-                </ol>
-            </section>
-            <hr>
-            <section id="downloads-section">
-                <h2>Downloads</h2>
-                <div class="download-item">
-                    <h6 class="download-title">My Resume</h6>
-                    <div class="download-link"><a href="" download="Resume_CHAN_ShuPui.pdf">Download</a></div>
-                </div>
-                <div class="download-item">
-                    <h6 class="download-title">My Transcript</h6>
-                    <div class="download-link"><a href="" download="Transcript_CHAN_ShuPui.pdf">Download</a></div>
-                </div>
-                <div class="download-item">
-                    <h6 class="download-title">Maybe download this page?</h6>
-                    <div class="download-link"><a href="#" download="charlie's_page.html">Download</a></div>
-                </div>
-            </section>
-        </main>
-    </div>
-    <div class="footer-wrapper">
-        <footer>
-            <h5>Things to say:</h5>
-            <div class="announcements">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non natus, pariatur iste distinctio
-                    dolores optio ratione sapiente exercitationem tempore.</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="2021-09-01">2021-2023</time>
             </div>
-            <h5>Contact Me</h5>
-            <ul class="contact-information">
-                <li class="contact-item">
-                    <img src="" width="32px" height="32px">
-                    <span class="contact-method">WeChat:</span>
-                    <a class="contact-detail" href="wechat://" target="_blank">charlieop_</a>
-                </li>
-                <li class="contact-item">
-                    <img src="" width="32px" height="32px">
-                    <span class="contact-method">E-Mail:</span>
-                    <a class="contact-detail" href="mailto:spchanae@connect.ust.hk?subject=[From%20Your%20Website]"
-                        target="_blank">spchanae@connect.ust.hk</a>
-                </li>
-                <li class="contact-item">
-                    <img src="" width="32px" height="32px">
-                    <span class="contact-method">Telephone (CN):</span>
-                    <a class="contact-detail" href="tel:+8615214388169">+86: 152-1438-8169</a>
-                </li>
-                <li class="contact-item">
-                    <img src="" width="32px" height="32px">
-                    <span class="contact-method">Telephone (HK):</span>
-                    <a class="contact-detail" href="tel:+85254231029">+852: 5423-1029</a>
-                </li>
-                <li class="contact-item">
-                    <img src="" width="32px" height="32px">
-                    <span class="contact-method">Location:</span>
-                    <a class="contact-detail" href="geo:22.337850941286945,114.26579681790412" target="_blank">HKUST,
-                        Sai Kung, HKSAR, China </a>
-                </li>
-            </ul>
-            <div class="footnote">
-                <p>Made with ❤️ by <strong>Charlieop</strong></p>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
             </div>
-            <div><a href="#">Go back to top.</a></div>
-        </footer>
-    </div>
-</body>
-
+            <div class="timeline-content">
+              <h6 class="timeline-title">SAGA IT Group</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
+                deserunt animi eaque provident blanditiis est, ullam adipisci
+                neque fuga aperiam ratione porro iure, ipsum natus recusandae
+                officiis accusamus amet tempore.
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="">xxxx-xx-xx</time>
+            </div>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <div class="timeline-content">
+              <h6 class="timeline-title">Lorem ipsum dolor sit</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                culpa exercitationem alias sequi fugiat asperiores voluptatem!
+                Nesciunt asperiores libero, illo fugiat non eum a provident
+                autem dolorem inventore eaque est!
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="">xxxx-xx-xx</time>
+            </div>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <div class="timeline-content">
+              <h6 class="timeline-title">Lorem ipsum dolor</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                culpa exercitationem alias sequi fugiat asperiores voluptatem!
+                Nesciunt asperiores libero, illo fugiat non eum a provident
+                autem dolorem inventore eaque est! Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. Iure, sunt!
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="">xxxx-xx-xx</time>
+            </div>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <div class="timeline-content">
+              <h6 class="timeline-title">Lorem ipsum dolor sit usiv</h6>
+              <p class="timeline-text">
+                Lorem ipsum consectetur adipisicing elit. Facere culpa
+                exercitationem asperiores voluptatem! Nesciunt asperiores
+                libero, autem dolorem inventore eaque est!
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="">xxxx-xx-xx</time>
+            </div>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <div class="timeline-content">
+              <h6 class="timeline-title">Dolor Sit</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
+                ipsum dolor sit amet, consectetur adipisicing elit. Autem quidem
+                magnam quam maiores exercitationem sit error saepe nobis
+                adipisci numquam! Facere culpa exercitationem alias sequi fugiat
+                asperiores voluptatem! Nesciunt asperiores libero. Illo fugiat
+                non eum a provident autem dolorem inventore eaque est!
+              </p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date">
+              <time datetime="">xxxx-xx-xx</time>
+            </div>
+            <div class="timeline-img">
+              <img
+                src=""
+                alt="It is a picture for this timeline block"
+                height="100px"
+                width="100px"
+              />
+            </div>
+            <div class="timeline-content">
+              <h6 class="timeline-title">Lorem ipsum dolor sit</h6>
+              <p class="timeline-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+                culpa exercitationem alias sequi fugiat asperiores voluptatem!
+                Nesciunt asperiores libero, illo fugiat non eum a provident
+                autem dolorem inventore eaque est!
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <hr />
+      <section id="downloads-section">
+        <h2>Downloads</h2>
+        <div class="download-item">
+          <h6 class="download-title">My Resume</h6>
+          <div class="download-link">
+            <a href="" download="Resume_CHAN_ShuPui.pdf">Download</a>
+          </div>
+        </div>
+        <div class="download-item">
+          <h6 class="download-title">My Transcript</h6>
+          <div class="download-link">
+            <a href="" download="Transcript_CHAN_ShuPui.pdf">Download</a>
+          </div>
+        </div>
+        <div class="download-item">
+          <h6 class="download-title">Maybe download this page?</h6>
+          <div class="download-link">
+            <a href="#" download="charlie's_page.html">Download</a>
+          </div>
+        </div>
+        <hr />
+      </section>
+    </main>
+    <footer>
+      <h5>Things to say:</h5>
+      <div class="announcements">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore non
+          natus, pariatur iste distinctio dolores optio ratione sapiente
+          exercitationem tempore.
+        </p>
+      </div>
+      <h5>Contact Me</h5>
+      <ul class="contact-information">
+        <li class="contact-item">
+          <img src="" width="32px" height="32px" />
+          <span class="contact-method">WeChat:</span>
+          <a class="contact-detail" href="wechat://" target="_blank"
+            >charlieop_</a
+          >
+        </li>
+        <li class="contact-item">
+          <img src="" width="32px" height="32px" />
+          <span class="contact-method">E-Mail:</span>
+          <a
+            class="contact-detail"
+            href="mailto:spchanae@connect.ust.hk?subject=[From%20Your%20Website]"
+            target="_blank"
+            >spchanae@connect.ust.hk</a
+          >
+        </li>
+        <li class="contact-item">
+          <img src="" width="32px" height="32px" />
+          <span class="contact-method">Telephone (CN):</span>
+          <a class="contact-detail" href="tel:+8615214388169"
+            >+86: 152-1438-8169</a
+          >
+        </li>
+        <li class="contact-item">
+          <img src="" width="32px" height="32px" />
+          <span class="contact-method">Telephone (HK):</span>
+          <a class="contact-detail" href="tel:+85254231029">+852: 5423-1029</a>
+        </li>
+        <li class="contact-item">
+          <img src="" width="32px" height="32px" />
+          <span class="contact-method">Location:</span>
+          <a
+            class="contact-detail"
+            href="geo:22.337850941286945,114.26579681790412"
+            target="_blank"
+            >HKUST, Sai Kung, HKSAR, China
+          </a>
+        </li>
+      </ul>
+      <div class="footnote">
+        <p>Made with ❤️ by <strong>Charlieop</strong></p>
+      </div>
+      <div><a href="#">Go back to top.</a></div>
+    </footer>
+  </body>
 </html>

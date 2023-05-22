@@ -1,232 +1,219 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Guessing Game!</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-        let answer;
+      let answer;
 
-        function load() {
-            // Prepare the random number
-            answer = parseInt(Math.random() * 100) + 1
+      function load() {
+        // Prepare the random number
+        answer = parseInt(Math.random() * 100) + 1;
+      }
+
+      function start() {
+        // Switch the display from the 'title screen' to the 'main screen'
+        load();
+        document.getElementById("title").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("reset").style.display = "block";
+      }
+
+      function guess() {
+        // Find the previous guess and return if
+        // the previous guess is already correct
+
+        // Ask for the guess from the user
+
+        // Check the guess with the lab logic
+        //   Case 1: not a number
+        //   Case 2: not an integer
+        //   Case 3: not within the valid range
+        //   Case 4: the guess is too small
+        //   Case 5: the guess is too big
+        //   Case 6: the guess is correct
+        if (document.getElementById("guess").innerHTML == answer) {
+          return false;
         }
 
-        function start() {
-            // Switch the display from the 'title screen' to the 'main screen'
-            load()
-            document.getElementById("title").style.display = 'none'
-            document.getElementById("main").style.display = "block"
-            document.getElementById("reset").style.display = "block"
+        let userInput = prompt("What's Your guess?");
+        document.getElementById("guess").innerHTML = userInput;
+
+        if (isNaN(userInput)) {
+          document.getElementById("hint").innerHTML =
+            "Please enter an <strong>integer</strong>!";
+          return false;
+        } else if (parseFloat(userInput) != parseInt(userInput)) {
+          document.getElementById("hint").innerHTML =
+            "It seems that you input nothing or a number with decimal.";
+          return false;
         }
-
-        function guess() {
-            // Find the previous guess and return if
-            // the previous guess is already correct
-
-            // Ask for the guess from the user
-
-            // Check the guess with the lab logic
-            //   Case 1: not a number
-            //   Case 2: not an integer
-            //   Case 3: not within the valid range
-            //   Case 4: the guess is too small
-            //   Case 5: the guess is too big
-            //   Case 6: the guess is correct
-            if (document.getElementById("guess").innerHTML == answer) {
-                return false
-            }
-
-            let userInput = prompt("What's Your guess?")
-            document.getElementById("guess").innerHTML = userInput
-
-            if (isNaN(userInput)) {
-                document.getElementById("hint").innerHTML = "Please enter an <strong>integer</strong>!"
-                return false;
-            }
-            else if (parseFloat(userInput) != parseInt(userInput)) {
-                document.getElementById("hint").innerHTML = "It seems that you input nothing or a number with decimal."
-                return false;
-            }
-            userInput = parseInt(userInput)
-            if (userInput == answer) {
-                document.getElementById("hint").innerHTML = "You win!"
-                return true;
-            }
-
-            else if (userInput > 100 || userInput < 1) {
-                document.getElementById("hint").innerHTML = "Enter a integer within [1, 100]"
-            }
-
-            else if (userInput > answer) {
-                document.getElementById("hint").innerHTML = "Your guess is too large"
-            }
-
-            else {
-                document.getElementById("hint").innerHTML = "Your guess is too small"
-            }
-            return false
-
+        userInput = parseInt(userInput);
+        if (userInput == answer) {
+          document.getElementById("hint").innerHTML = "You win!";
+          return true;
+        } else if (userInput > 100 || userInput < 1) {
+          document.getElementById("hint").innerHTML =
+            "Enter a integer within [1, 100]";
+        } else if (userInput > answer) {
+          document.getElementById("hint").innerHTML = "Your guess is too large";
+        } else {
+          document.getElementById("hint").innerHTML = "Your guess is too small";
         }
+        return false;
+      }
 
-        function reset() {
-            document.getElementById("guess").innerHTML = "-"
-            document.getElementById("title").style.display = 'block'
-            document.getElementById("main").style.display = "none"
-            document.getElementById("reset").style.display = "none"
-            document.getElementById("hint").innerHTML = "Welcome to a new round!"
-
-
-        }
-
+      function reset() {
+        document.getElementById("guess").innerHTML = "-";
+        document.getElementById("title").style.display = "block";
+        document.getElementById("main").style.display = "none";
+        document.getElementById("reset").style.display = "none";
+        document.getElementById("hint").innerHTML = "Welcome to a new round!";
+      }
     </script>
     <style>
-        * {
-            box-sizing: border-box;
-        }
+      * {
+        box-sizing: border-box;
+      }
 
-        /* This is the style of the body element */
-        body {
-            font-family: Georgia, serif;
-            background: seashell fixed center no-repeat;
-            margin: 0;
-            padding: 0;
-        }
+      /* This is the style of the body element */
+      body {
+        font-family: Georgia, serif;
+        background: seashell fixed center no-repeat;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* Set up the style of the boxes of the two screens */
-        .box {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 20vh;
-            width: min(90%, 800px);
-            height: max(60vh, 300px);
-            border: 0.3em black solid;
-            border-radius: 10px;
-        }
+      /* Set up the style of the boxes of the two screens */
+      .box {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20vh;
+        width: min(90%, 800px);
+        height: max(60vh, 300px);
+        border: 0.3em black solid;
+        border-radius: 10px;
+      }
 
+      /* Set up the style for the title screen */
+      #title {
+        color: whitesmoke;
+        text-transform: uppercase;
+        background-color: rgba(20, 20, 20, 0.8);
+      }
 
-        /* Set up the style for the title screen */
-        #title {
-            color: whitesmoke;
-            text-transform: uppercase;
-            background-color: rgba(20, 20, 20, 0.8);
-        }
+      /* Set up the style for the p and big */
+      big {
+        font-size: 1.5rem;
+      }
 
-        /* Set up the style for the p and big */
-        big {
-            font-size: 1.5rem;
-        }
+      p {
+        font-size: 2em;
+        text-align: center;
+      }
 
-        p {
-            font-size: 2em;
-            text-align: center;
-        }
+      /* Set up the style for the title and subtitle */
+      #title1 {
+        margin: initial;
+        font-size: 2.5em;
+        width: 100%;
+        height: max(10vh, 50px);
+        text-align: center;
+        margin-top: 15vh;
+      }
 
-        /* Set up the style for the title and subtitle */
-        #title1 {
-            margin: initial;
-            font-size: 2.5em;
-            width: 100%;
-            height: max(10vh, 50px);
-            text-align: center;
-            margin-top: 15vh;
-        }
+      #title2 {
+        margin: initial;
+        margin-top: -3vh;
+        font-size: 4.5em;
+        height: max(10vh, 50px);
+        width: 100%;
+        text-align: center;
+      }
 
-        #title2 {
-            margin: initial;
-            margin-top: -3vh;
-            font-size: 4.5em;
-            height: max(10vh, 50px);
-            width: 100%;
-            text-align: center;
-        }
+      #subtitle {
+        margin: initial;
+        margin-top: 5vh;
+        margin-left: 30%;
+        font-size: 1em;
+      }
 
-        #subtitle {
-            margin: initial;
-            margin-top: 5vh;
-            margin-left: 30%;
-            font-size: 1em;
-        }
+      /* Set up the style for the main screen */
+      #main {
+        font-family: sans-serif;
+        padding-top: 2vh;
+        display: none;
+      }
 
-        /* Set up the style for the main screen */
-        #main {
-            font-family: sans-serif;
-            padding-top: 2vh;
-            display: none;
-        }
+      /* Set up the style for 'button' */
+      #button {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10vh;
+        text-decoration: none;
+        width: 60%;
+        color: black;
+        border: 3px black solid;
+        padding: 10px;
+        background-color: #eee;
+        text-align: center;
+        border-radius: 10px;
+        font-size: 1.8rem;
+      }
 
-        /* Set up the style for 'button' */
-        #button {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10vh;
-            text-decoration: none;
-            width: 60%;
-            color: black;
-            border: 3px black solid;
-            padding: 10px;
-            background-color: #EEE;
-            text-align: center;
-            border-radius: 10px;
-            font-size: 1.8rem;
-        }
+      /* Set up the style for hint */
+      #hint {
+        color: red;
+        margin-top: 5vh;
+        padding: 10px;
+      }
 
-        /* Set up the style for hint */
-        #hint {
-            color: red;
-            margin-top: 5vh;
-            padding: 10px;
-        }
+      .nav_button {
+        border: 2px solid;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: #fff;
+        position: fixed;
+        top: 10px;
+        width: 5rem;
+        text-align: center;
+      }
 
+      #reset {
+        color: red;
+        right: 10px;
+        display: none;
+      }
 
-        .nav_button {
-            border: 2px solid;
-            border-radius: 5px;
-            padding: 5px;
-            background-color: #FFF;
-            position: fixed;
-            top: 10px;
-            width: 5rem;
-            text-align: center;
-
-        }
-
-        #reset {
-            color: red;
-            right: 10px;
-            display: none;
-        }
-
-        #home {
-            color: indianred;
-            left: 10px;
-            text-decoration: none;
-        }
+      #home {
+        color: indianred;
+        left: 10px;
+        text-decoration: none;
+      }
     </style>
     <style type="text/css"></style>
-</head>
+  </head>
 
-<body>
+  <body>
     <a id="home" class="nav_button" href="../index.html">Home</a>
     <div id="reset" class="nav_button" onclick="reset()">Restart</div>
 
     <!-- the title screen -->
     <div class="box" id="title" onclick="start()">
-        <p id="title1">Fantastic</p>
-        <p id="title2">Number</p>
-        <p id="subtitle">that <big>You Have</big><br>
-            to <big>Guess</big></p>
+      <p id="title1">Fantastic</p>
+      <p id="title2">Number</p>
+      <p id="subtitle">
+        that <big>You Have</big><br />
+        to <big>Guess</big>
+      </p>
     </div>
 
     <!-- the game screen -->
     <div class="box" id="main">
-        <p>Your Input: <span id="guess">-</span></p>
-        <a id="button" href="#" onclick="guess()">Enter Your Guess</a>
-        <p id="hint">Press the button to start the guess!</p>
+      <p>Your Input: <span id="guess">-</span></p>
+      <a id="button" href="#" onclick="guess()">Enter Your Guess</a>
+      <p id="hint">Press the button to start the guess!</p>
     </div>
-
-
-</body>
-
+  </body>
 </html>
