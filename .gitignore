@@ -1,4 +1,6 @@
-/24_points/node_modules
-/24_points/node_modules/*
-/24_points/package-lock.json
-/24_points/package.json
+.DS_Store
+*/.DS_Store
+*/node_modules/*
+*/node_modules/
+*/dist/
+*/build/
