@@ -1,70 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test</title>
-    <script
-      src="https://code.jquery.com/jquery-3.6.4.min.js"
-      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      function startup() {
-        function test(e) {
-          console.log(e);
-        }
-        const holes = document.getElementById("game-area");
-        holes.addEventListener("touchstart", test);
-      }
-      document.addEventListener("DOMContentLoaded", startup);
-    </script>
-    <style>
-      * {
-        box-sizing: border-box;
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      #game-area {
-        width: min(90vmin, 450px);
-        height: min(90vmin, 450px);
-        margin: auto;
-        margin-top: 200px, calc((100vh - 500px) / 2);
-      }
-      /* - Set the style of the holes */
-      .hole {
-        width: min(25vmin, 125px);
-        height: min(25vmin, 125px);
-        margin: min(2.5vmin, 12.5px);
-        float: left;
-        background-color: rgba(255, 248, 220, 0.9);
-        border: 5px black solid;
-        border-radius: 20px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>Test Page</h1>
-    <a href="../">Go back to home.</a>
-    <p id="output">empty</p>
-
-    <div id="game-area">
-      <div class="hole">
-        <p>HIIiiiiiii</p>
-      </div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-      <div class="hole"></div>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Page</title>
+</head>
+<body>
+  <a href="../">Go back.</a>
+  <h1>Well... As I have said, nothing to see here.</h1>
+  
+</body>
 </html>

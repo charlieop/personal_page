@@ -4,42 +4,84 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#121212" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
     <title>Charlieop's Personal Page</title>
-    <style type="text/css">
-      li {
-        margin-top: 10px;
-      }
-    </style>
   </head>
   <body>
-    <h1>This is Charlieop's personal page. Welcome!</h1>
-    <p>
-      Here is the navigation page for my works, please
-      <strong>click</strong> the link to jump to the corrsponding site.
-    </p>
-    <ul>
-      <li>🚧 <a href="./personal_page_html">My personal Page templet</a></li>
-      <br />
-      <li>⭐️ <a href="./whack-a-mole">A whack-a-mole game</a></li>
-      <li>🚧 <a href="./24_points/public/">24 Points</a></li>
-      <br />
-      <li>💡 <a href="./guessing_game">A simple guessing game</a></li>
-      <li>💡 <a href="./jumping_game/">A jumping_game.</a></li>
-      <br />
-      <li>❌ <a href="./test">A page for all sorts of testing.</a></li>
-      <li>🚧 <a href="http://www.charlieop.top">Main site</a></li>
-      <li>
-        🚧 <a href="https://github.charlieop.top">Preview site (github)</a>
-      </li>
-      <br />
-      <li>There is no more right now...</li>
-    </ul>
+    <header>
+      <div class="header-wrapper">
+        <h1>Charlieop's personal page.</h1>
+        <p>Welcome!</p>
+      </div>
+      <div class="header-notes">
+        <div class="arrow animated"></div>
+      </div>
+    </header>
+    <main>
+      <h2>My projects:</h2>
+      <div class="cards-wrapper">
+        <a class="card" href="./personal_page_html">
+          <div class="icon">🚧</div>
+          <h3 class="title">About Me</h3>
+          <div class="desc">This will be my homepage in the future.</div>
+        </a>
 
-    <div>
-      <p>⭐️: My best projects</p>
-      <p>💡: Maybe have a look</p>
-      <p>🚧: Under construction</p>
-      <p>❌: Just don't go... plz?</p>
-    </div>
+        <a class="card" href="./whack-a-mole">
+          <div class="icon">⭐️</div>
+          <h3 class="title">Whack a Mole</h3>
+          <div class="desc">Try to beat my high score of 1143.</div>
+        </a>
+
+        <a class="card" href="./24_points/public/">
+          <div class="icon">⭐️</div>
+          <h3 class="title">24 Points</h3>
+          <div class="desc">
+            <p>
+              A online multiplayer game that you can play with your friends.
+            </p>
+            <p>Play and see who is the King of 24!</p>
+          </div>
+        </a>
+
+        <a class="card" href="./guessing_game">
+          <div class="icon">💡</div>
+          <h3 class="title">A simple guessing game</h3>
+          <div class="desc">
+            Just a normal guessing game. Try to guess the number between 1 and
+            100.
+          </div>
+        </a>
+
+        <a class="card" href="./jumping_game/">
+          <div class="icon">💡</div>
+          <h3 class="title">Pochacco rush</h3>
+          <div class="desc">A jumpping game.</div>
+        </a>
+
+        <a class="card" href="./test">
+          <div class="icon">❌</div>
+          <h3 class="title">Test Page</h3>
+          <div class="desc">Well there is nothing to see here.</div>
+        </a>
+      </div>
+    </main>
+    <aside>
+      <div class="aside-wrapper">
+        <h3>Icons:</h3>
+        <p>⭐️: My best projects</p>
+        <p>💡: Maybe have a look</p>
+        <p>🚧: Under construction</p>
+        <p>❌: Just don't go... plz?</p>
+      </div>
+    </aside>
+    <footer>
+      <h5>Well, here's the end.</h5>
+      <p>Maybe you want to <a href="./#">Go Back To Top</a>.</p>
+    </footer>
   </body>
 </html>
