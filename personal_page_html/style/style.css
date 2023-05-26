@@ -7,9 +7,10 @@
   --nav-font: 1.4rem "Source Sans Pro", Ubuntu, sans-serif;
   --nav-font-color: #323232;
   --nav-height: 64px;
-  --nav-background: #eeeeee99;
+  --nav-background: #eeeeeeaa;
   --header-background: #f4f2f1;
-  --nav-hover-background: #d2d0d0;
+  --nav-hover-background: #9cdc54;
+  --hint-color: #263238;
 }
 
 *,
@@ -54,23 +55,19 @@ header {
   display: flex;
   align-items: center;
 
-  /* box-shadow: 0px -2px 10px #777777; */
+  transform: translateY(0%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.away {
+  transform: translateY(-100%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.sticking {
   position: sticky;
   top: 0;
-  /* background-color: red; */
-  /* outline: 3px solid steelblue; */
-}
-
-main {
-  grid-area: main;
-}
-
-section {
-  min-height: 50svh;
-}
-
-footer {
-  grid-area: footer;
+  box-shadow: 4px 0px 8px black;
 }
 
 .flex {
@@ -88,14 +85,16 @@ footer {
 
 .primary-nav {
   position: fixed;
-  inset: 0 0 0 45%;
+  inset: 0 0 0 30%;
+  height: 100lvh;
   z-index: 100;
+  transform: translate3d(0, 0, 0);
 
   display: flex;
   flex-direction: column;
-  gap: clamp(0.5vh, 0.5rem, 1.5vh);
+  gap: clamp(0.5lvh, 0.5rem, 1lvh);
 
-  padding: clamp(80px, 12vh, 100px) 2rem;
+  padding: clamp(80px, 12svh, 100px) 2rem;
 
   background-color: var(--nav-background);
   -webkit-backdrop-filter: blur(6px);
@@ -109,22 +108,20 @@ footer {
 }
 
 .nav-toggle {
-  /* position: fixed; */
   margin-left: auto;
   z-index: 999;
   height: var(--nav-height);
   width: var(--nav-height);
 }
 
-.menu {
-  mask: url(../src/menu.svg) no-repeat center;
-  background-color: var(--nav-font-color);
+.nav-toggle svg {
+  fill: var(--nav-font-color);
 }
 
 .cross {
-  display: none;
-  mask: url(../src/cross.svg) no-repeat center;
-  background-color: var(--nav-font-color);
+  position: absolute;
+  top: 3px;
+  right: 10px;
 }
 
 .nav-title {
@@ -138,7 +135,7 @@ footer {
 
 .nav-item {
   display: block;
-  height: 100%;
+  /* height: 100%; */
   border-radius: 5px;
   padding: 5px;
 
@@ -165,33 +162,67 @@ footer {
   /* width: 100%; */
 }
 
+.current {
+  position: relative;
+}
+.current::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--hint-color);
+}
+
 .lang {
   margin-top: 5vh;
   font-size: 0.7em;
+  height: auto;
+}
+
+main {
+  grid-area: main;
+  min-height: calc(100vh - var(--nav-height) - 6px);
+}
+
+section {
+  min-height: 50vh;
 }
 
 .home {
-  margin-top: 10vh;
+  min-height: 100svh;
+}
+
+footer {
+  grid-area: footer;
+  min-height: calc(100vh - var(--nav-height) - 6px);
 }
 
 @media screen and (width <= 800px) {
+  /* .current {
+    display: flex;
+  } */
+  .current::after {
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 10px;
+  }
   #nav-toggle:checked ~ nav .primary-nav {
     transform: translateX(0%);
+    opacity: 100%;
+    transition: opacity 0.3s ease-in-out;
   }
   #nav-toggle:checked ~ .menu {
-    display: none;
-  }
-  #nav-toggle:checked ~ .cross {
-    display: block;
+    opacity: 0%;
+    transition: opacity 0.3s ease-in-out;
   }
   #nav-toggle:not(:checked) ~ nav .primary-nav {
     transform: translateX(100%);
+    opacity: 0%;
+    transition: all 0.3s ease-in-out;
   }
   #nav-toggle:not(:checked) ~ .menu {
-    display: block;
-  }
-  #nav-toggle:not(:checked) ~ .cross {
-    display: none;
+    opacity: 100%;
+    transition: opacity 0.3s ease-in-out;
   }
 }
 @media screen and (width > 800px) {
@@ -212,7 +243,7 @@ footer {
     flex-grow: 1;
     flex-direction: row;
     justify-content: end;
-    align-items: center;
+    align-items: first baseline;
     gap: min(2vw, 20px);
 
     height: calc(0.7 * var(--nav-height));
@@ -220,6 +251,8 @@ footer {
     position: unset;
     transform: unset;
     padding: unset;
+    background-color: unset;
+
     margin: 0 0 0 auto;
 
     font-size: 0.9em;
@@ -236,6 +269,17 @@ footer {
     display: inline;
     margin-right: 0.2rem;
     font-size: 0.8em;
+  }
+
+  .current::after {
+    left: 0;
+    bottom: -3px;
+    height: 5px;
+    width: 100%;
+  }
+
+  .nav-toggle {
+    display: none;
   }
 
   .nav-title {
