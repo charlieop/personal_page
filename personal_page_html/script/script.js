@@ -27,25 +27,26 @@ function stickNav() {
   const header = document.querySelector("header");
   const navToggle = document.querySelector("#nav-toggle");
   var lastScroll = 0;
+  const margin = 5;
 
   window.addEventListener("scroll", () => {
     var currentScroll = window.scrollY;
     if (currentScroll <= 10) {
-      header.classList.remove("scroll-up");
-      header.classList.remove("scroll-down");
+      header.classList.remove("scrolling-up");
+      header.classList.remove("scrolling-down");
     } else if (
-      currentScroll > lastScroll &&
-      !header.classList.contains("scroll-down") &&
+      currentScroll - lastScroll > margin &&
+      !header.classList.contains("scrolling-down") &&
       !navToggle.checked
     ) {
-      header.classList.remove("scroll-up");
-      header.classList.add("scroll-down");
+      header.classList.remove("scrolling-up");
+      header.classList.add("scrolling-down");
     } else if (
-      currentScroll < lastScroll &&
-      !header.classList.contains("scroll-up")
+      currentScroll - lastScroll < -1* margin &&
+      !header.classList.contains("scrolling-up")
     ) {
-      header.classList.remove("scroll-down");
-      header.classList.add("scroll-up");
+      header.classList.remove("scrolling-down");
+      header.classList.add("scrolling-up");
     }
 
     lastScroll = currentScroll;
@@ -59,11 +60,9 @@ function changeCurrent() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        console.log(entry.target.id + ": " + entry.isIntersecting);
+        // console.log(entry.target.id + ": " + entry.isIntersecting);
         if (entry.isIntersecting) {
-          const navItem = document.querySelector(
-            "#nav-" + entry.target.id
-          );
+          const navItem = document.querySelector("#nav-" + entry.target.id);
           navItems.forEach((otherNavItem) => {
             otherNavItem.classList.remove("current");
           });
