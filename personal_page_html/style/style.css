@@ -31,6 +31,11 @@ a {
   color: unset;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(1em + 6px + var(--nav-height));
+}
+
 body {
   font-family: var(--text-font);
   display: grid;
@@ -46,6 +51,8 @@ body {
 }
 
 header {
+  transform: translate3d(0, 0, 0);
+
   padding: 3px 10px 3px 5vw;
   grid-area: header;
   font: var(--nav-font);
@@ -54,20 +61,19 @@ header {
 
   display: flex;
   align-items: center;
-
-  transform: translateY(0%);
-  transition: transform 0.2s ease-in-out;
-}
-
-.away {
-  transform: translateY(-100%);
-  transition: transform 0.2s ease-in-out;
-}
-
-.sticking {
   position: sticky;
   top: 0;
-  box-shadow: 4px 0px 8px black;
+
+  transition: all 0.2s ease-in-out 0.1s;
+}
+
+.scroll-down {
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.scroll-up {
+  box-shadow: 0 -2px 5px black;
 }
 
 .flex {
@@ -88,7 +94,6 @@ header {
   inset: 0 0 0 30%;
   height: 100lvh;
   z-index: 100;
-  transform: translate3d(0, 0, 0);
 
   display: flex;
   flex-direction: column;
@@ -184,7 +189,8 @@ main {
 }
 
 section {
-  min-height: 50vh;
+  min-height: 50lvh;
+  border: #263238 solid 1px;
 }
 
 .home {
@@ -273,7 +279,7 @@ footer {
 
   .current::after {
     left: 0;
-    bottom: -3px;
+    bottom: -1px;
     height: 5px;
     width: 100%;
   }
