@@ -26,23 +26,43 @@ function scrollLock() {
 function stickNav() {
   const header = document.querySelector("header");
   const navToggle = document.querySelector("#nav-toggle");
+  const navButtons = document.querySelectorAll(".nav-item");
+  var navCLicked = false;
+  var timeout = null;
   var lastScroll = 0;
   const margin = 5;
 
+  console.log(navButtons);
+  navButtons.forEach((navButton) => {
+    navButton.addEventListener("click", (e) => {
+      clearTimeout(timeout);
+      navCLicked = true;
+      timeout = setTimeout(() => {
+        if (e.target.getAttribute("href") == "#") {
+          console.log("hi");
+          header.classList.remove("scrolling-up");
+        }
+        navCLicked = false;
+      }, 1000);
+    });
+  });
+
   window.addEventListener("scroll", () => {
     var currentScroll = window.scrollY;
-    if (currentScroll <= 10) {
+    if (navToggle.checked || navCLicked) {
+      header.classList.remove("scrolling-down");
+      header.classList.add("scrolling-up");
+    } else if (currentScroll <= 10) {
       header.classList.remove("scrolling-up");
       header.classList.remove("scrolling-down");
     } else if (
       currentScroll - lastScroll > margin &&
-      !header.classList.contains("scrolling-down") &&
-      !navToggle.checked
+      !header.classList.contains("scrolling-down")
     ) {
       header.classList.remove("scrolling-up");
       header.classList.add("scrolling-down");
     } else if (
-      currentScroll - lastScroll < -1* margin &&
+      currentScroll - lastScroll < -1 * margin &&
       !header.classList.contains("scrolling-up")
     ) {
       header.classList.remove("scrolling-down");
