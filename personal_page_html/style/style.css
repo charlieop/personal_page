@@ -3,6 +3,10 @@
   --text-font: Ubuntu, serif;
 
   --background-color: #f4f2f1;
+  --font-color: #323232;
+  --main-color: #9cdc54;
+  --stress-color: #00b742;
+  --accent-color: #263238;
 
   --nav-font: 1.4rem var(--title-font);
   --nav-font-color: #323232;
@@ -12,6 +16,8 @@
   --nav-hover-background: #9cdc54;
   --hint-color: #263238;
   --nav-toggle-duration: 1s;
+
+  --home-background: #9cdc54a0;
 
   --footer-seperation-color: #44444466;
   --footer-background: #76b82a;
@@ -48,6 +54,7 @@ html {
 
 body {
   font-family: var(--text-font);
+  color: var(--font-color);
   display: grid;
   grid-template-columns: 5vw 1fr 5vw;
   grid-template-areas:
@@ -56,17 +63,14 @@ body {
     "footer footer  footer";
 
   background-color: var(--background-color);
-  overflow-x: -moz-hidden-unscrollable;
-  overflow-x: hidded;
+  overflow-x: hidden;
 }
 
 header {
-
   padding: 3px 10px 3px 5vw;
   grid-area: header;
   font: var(--nav-font);
   color: var(--nav-font-color);
-  background-color: var(--header-background);
 
   display: flex;
   align-items: center;
@@ -80,10 +84,11 @@ header {
 
 .scrolling-down {
   transform: translate3d(0, -100%, 0);
-  transition: all 0.5s ease-in-out 0.5s;
+  transition: all 0.5s ease-in-out 0.1s;
 }
 
 .scrolling-up {
+  background-color: var(--header-background);
   box-shadow: 0 -2px 5px black;
 }
 
@@ -112,10 +117,6 @@ header {
   gap: 0.5rem;
 
   padding: 6rem 2rem;
-
-  background-color: var(--nav-background);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
 
   transition: transform 300ms ease-in-out;
 }
@@ -193,14 +194,117 @@ header {
 main {
   grid-area: main;
   min-height: calc(100vh - var(--nav-height) - 6px);
+  row-gap: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-section {
-  min-height: 50lvh;
+.home::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--home-background);
+  inset: 0 0 50% 55%;
+
+  z-index: -1;
 }
 
+.home::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: var(--home-background);
+  inset: 80% 25% 5% 0;
+
+  z-index: -1;
+}
 .home {
-  min-height: 100svh;
+  padding: 3rem 0;
+
+  height: calc(100svh - var(--nav-height) - 6px);
+}
+
+.home h1 {
+  font-size: 2em;
+}
+
+.name {
+  color: var(--stress-color);
+  font-size: 1.4em;
+  font-weight: 700;
+}
+.home-intro {
+  grid-template-areas: "intro-section";
+  padding: 3rem 0;
+  display: grid;
+}
+
+.home-intro-section {
+  grid-area: intro-section;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+.home-intro-section:not([data-display="true"]) {
+  opacity: 0;
+  transform: scale(90%) translateY(5%);
+}
+
+.home-intro-img {
+  height: 100%;
+}
+
+.home-intro-img * {
+  aspect-ratio: 5 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-intro-text span {
+  font-size: 2.4em;
+  color: var(--stress-color);
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  .home-intro-text {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--font-color);
+    font-size: 1.4em;
+    font-weight: 900;
+  }
+  .home-intro-text h2 {
+    position: absolute;
+    inset: 3rem 2rem;
+    text-shadow: #fff 0px 0px 5px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .home {
+    /* position: relative; */
+    padding: 3rem 0;
+  }
+  .home-intro {
+    height: 100%;
+  }
+  .home-intro-section {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    height: 100%;
+  }
 }
 
 footer {
@@ -213,10 +317,6 @@ footer {
   padding: 5rem 2rem;
 
   /* background-color: red; */
-}
-
-.footer-wrapper * {
-  /* outline: steelblue solid 1px; */
 }
 
 /* .footer-wrapper::before {
@@ -249,7 +349,8 @@ footer {
 }
 
 .footer-wrapper a {
-  text-decoration: underline 1px var(--footer-text-color);
+  text-decoration-color: var(--footer-text-color);
+  text-decoration: underline;
   text-underline-offset: 5px;
 }
 
@@ -305,10 +406,15 @@ footer {
     height: 100%;
     width: 10px;
   }
-  
+  .primary-nav {
+    background-color: var(--nav-background);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+  }
+
   .nav-toggle {
     position: absolute;
-    right: 1rem;
+    right: 2rem;
   }
   #nav-toggle:checked ~ nav .primary-nav {
     transform: translate3d(0, 0, 0);
@@ -407,7 +513,7 @@ footer {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 1000px) {
   body {
     grid-template-columns: 15vw 1fr 15vw;
   }
