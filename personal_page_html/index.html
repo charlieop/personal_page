@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
     <link
       rel="stylesheet"
@@ -19,7 +19,6 @@
     <script src="./script/script.js"></script>
     <title>Charlie Chan</title>
   </head>
-
   <body>
     <header>
       <div class="nav-wrapper flex">
@@ -104,6 +103,7 @@
             </svg>
           </a>
         </div>
+
         <input type="checkbox" id="nav-toggle" />
         <label for="nav-toggle" class="nav-toggle menu">
           <svg viewBox="0 0 128 128">
@@ -169,7 +169,40 @@
 
     <main>
       <section id="home" class="home">
-        <h1>Hi, call me <span class="name">Charlie</span>!</h1>
+        <h1>
+          Hi, I'm
+          <span class="name forename">Charlie</span>
+          <span class="name surname">CHAN</span>
+        </h1>
+        <ul class="home-intro">
+          <li class="home-intro-section" data-display="true">
+            <div class="home-intro-text">
+              <h2>I'm a</h2>
+              <span>HKUSTer</span>
+            </div>
+            <div class="home-intro-img">
+              <img src="./img/hkust.jpg" />
+            </div>
+          </li>
+          <li class="home-intro-section">
+            <div class="home-intro-text">
+              <h2>I'm a</h2>
+              <span> Web Developer</span>
+            </div>
+            <div class="home-intro-img">
+              <img src="./img/web-developer.jpg" />
+            </div>
+          </li>
+          <li class="home-intro-section">
+            <div class="home-intro-text">
+              <h2>I'm a</h2>
+              <span>Gamer</span>
+            </div>
+            <div class="home-intro-img">
+              <img src="./img/gamer.jpg" />
+            </div>
+          </li>
+        </ul>
       </section>
 
       <section id="about" class="about">

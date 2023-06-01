@@ -7,6 +7,7 @@ function init() {
   // scrollLock();
   stickNav();
   changeCurrent();
+  setTimeout(nextMainIntro, 5000);
 }
 
 // disable scrolling when nav opens
@@ -32,7 +33,6 @@ function stickNav() {
   var lastScroll = 0;
   const margin = 5;
 
-  console.log(navButtons);
   navButtons.forEach((navButton) => {
     navButton.addEventListener("click", (e) => {
       clearTimeout(timeout);
@@ -49,11 +49,11 @@ function stickNav() {
 
   window.addEventListener("scroll", () => {
     var currentScroll = window.scrollY;
-    if (navToggle.checked || navCLicked) {
+    if (currentScroll <= 10) {
       header.classList.remove("scrolling-down");
-      header.classList.add("scrolling-up");
-    } else if (currentScroll <= 10) {
       header.classList.remove("scrolling-up");
+    } else if (navToggle.checked || navCLicked) {
+      header.classList.add("scrolling-up");
       header.classList.remove("scrolling-down");
     } else if (
       currentScroll - lastScroll > margin &&
@@ -80,7 +80,6 @@ function changeCurrent() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        // console.log(entry.target.id + ": " + entry.isIntersecting);
         if (entry.isIntersecting) {
           const navItem = document.querySelector("#nav-" + entry.target.id);
           navItems.forEach((otherNavItem) => {
@@ -96,4 +95,18 @@ function changeCurrent() {
   sections.forEach((section) => {
     observer.observe(section);
   });
+}
+
+function nextMainIntro() {
+  const sections = document.querySelectorAll(".home-intro-section");
+  var currentSession = 0;
+  for (let i = 0; i < sections.length; i++) {
+    if (sections[i].dataset.display == "true") {
+      currentSession = i;
+      break;
+    }
+  }
+  sections[currentSession].dataset.display = "false";
+  sections[(currentSession + 1) % sections.length].dataset.display = "true";
+  setTimeout(nextMainIntro, 5000);
 }
