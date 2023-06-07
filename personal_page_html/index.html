@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
 
     <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap"
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:wght@200;400;700&display=swap"
     />
 
     <link rel="stylesheet" type="text/css" href="./style/style.css" />
@@ -169,7 +169,7 @@
 
     <main>
       <section id="home" class="home">
-        <h1>
+        <h1 class="fade-in">
           Hi, I'm
           <span class="name forename">Charlie</span>
           <span class="name surname">CHAN</span>
@@ -207,31 +207,66 @@
 
       <section id="about" class="about">
         <div class="content-wrapper">
-          <h2>About Me</h2>
+          <h2 class="fade-in">About Me</h2>
           <div class="photo">
-            <img src="./img/charlie.jpg" width="240px" height="320px" alt="a photo of me" />
+            <img
+              src="./img/charlie.jpg"
+              width="240px"
+              height="320px"
+              alt="a photo of me"
+            />
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-            obcaecati necessitatibus fugit soluta neque ipsam cumque itaque,
-            doloremque repudiandae commodi?
+          <p class="intro fade-in">
+            I am a year 3 UG student in HKUST, majoring in Computer Science
+            (BSc) with additional major in Math. I love to explore new ideas and
+            create wonderful things.
           </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-            quia labore tempora nam excepturi autem rem expedita tempore eaque
-            odit! Perspiciatis, obcaecati assumenda autem dicta quasi vitae
-            provident, consectetur nesciunt quisquam qui maxime soluta magni
-            repudiandae asperiores veniam. Nemo ducimus facere excepturi animi
-            natus et laboriosam similique alias necessitatibus error.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores,
-            illum?
-          </p>
+          <div class="quote fade-in">
+            <h3>My favourite lyrics:</h3>
+            <blockquote cite="https://www.youtube.com/watch?v=hP6QpMeSG6s">
+              <q>
+                Never&nbspbe&nbspso&nbspkind,
+                you&nbspforget&nbspto&nbspbe&nbspclever.
+              </q>
+              <q>
+                Never&nbspbe&nbspso&nbspclever,
+                you&nbspforget&nbspto&nbspbe&nbspkind.
+              </q>
+            </blockquote>
+            <p class="cite">--<cite>Marjorie</cite> by Taylor Swift</p>
+          </div>
+          <div class="fav-list">
+            <ul>
+              <li class="fade-in">
+                <span class="fav-type">Passionate Sport</span>
+                <span class="fav-item">Volleyball&nbsp🏐</span>
+              </li>
+              <li class="fade-in">
+                <span class="fav-type">Beloved Signer</span>
+                <span class="fav-item">Taylor&nbspSwift</span>
+              </li>
+              <li class="fade-in">
+                <span class="fav-type">Pinned Destination</span>
+                <span class="fav-item">Italy&nbsp🇮🇹</span>
+              </li>
+              <li class="fade-in">
+                <span class="fav-type">Coveted Gift</span>
+                <span class="fav-item">Vision&nbspPro</span>
+              </li>
+              <li class="fade-in">
+                <span class="fav-type">Preferred Pet</span>
+                <span class="fav-item">Cat&nbsp😼</span>
+              </li>
+              <li class="fade-in">
+                <span class="fav-type">Longed Game</span>
+                <span class="fav-item">GTA&nbspVI</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section id="skills" class="skills">
+      <section id="skills" class="skills fade-in">
         <div class="content-wrapper">
           <h2>Skills</h2>
           <p>
@@ -307,7 +342,7 @@
         </div>
       </section>
 
-      <section id="timeline" class="timeline">
+      <section id="timeline" class="timeline fade-in">
         <div class="content-wrapper">
           <h2>Timeline</h2>
           <p>
@@ -317,7 +352,7 @@
             nulla sint aliquam architecto sapiente.
           </p>
           <ol class="timeline">
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="2021-09-01">2021 - 2025</time>
               </div>
@@ -339,7 +374,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="2021-09-01">2021-2023</time>
               </div>
@@ -361,7 +396,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="">xxxx-xx-xx</time>
               </div>
@@ -383,7 +418,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="">xxxx-xx-xx</time>
               </div>
@@ -406,7 +441,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="">xxxx-xx-xx</time>
               </div>
@@ -427,7 +462,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="">xxxx-xx-xx</time>
               </div>
@@ -452,7 +487,7 @@
                 </p>
               </div>
             </li>
-            <li class="timeline-item">
+            <li class="timeline-item fade-in">
               <div class="timeline-date">
                 <time datetime="">xxxx-xx-xx</time>
               </div>
@@ -478,11 +513,11 @@
         </div>
       </section>
 
-      <section class="projects" id="projects">
+      <section id="projects" class="projects fade-in">
         <h2>My Projects</h2>
       </section>
 
-      <section id="downloads" class="downloads">
+      <section id="downloads" class="downloads fade-in">
         <div class="content-wrapper">
           <h2>Downloads</h2>
           <div class="download-item">

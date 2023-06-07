@@ -8,6 +8,7 @@ function init() {
   stickNav();
   changeCurrent();
   setTimeout(nextMainIntro, 5000);
+  fadeIn();
 }
 
 // disable scrolling when nav opens
@@ -109,4 +110,21 @@ function nextMainIntro() {
   sections[currentSession].dataset.display = "false";
   sections[(currentSession + 1) % sections.length].dataset.display = "true";
   setTimeout(nextMainIntro, 5000);
+}
+
+function fadeIn() {
+  const fadeInItem = document.querySelectorAll(".fade-in");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationName = "fade-in";
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: "10% 0px -10% 0px" });
+
+  fadeInItem.forEach((item) => {
+    observer.observe(item);
+  });
 }
