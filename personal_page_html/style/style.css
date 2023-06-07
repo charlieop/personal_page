@@ -684,6 +684,7 @@ section h2 {
   .about .photo img {
     border-radius: 5px;
     aspect-ratio: 1 / 1;
+    object-position: 0px -100px;
     width: min(100%, 30rem);
   }
   .about .photo::before {
