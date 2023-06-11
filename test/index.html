@@ -1,14 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Page</title>
-</head>
-<body>
-  <a href="../">Go back.</a>
-  <h1>Well... As I have said, nothing to see here.</h1>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page</title>
+  </head>
+  <body>
+    <a href="../">Go back.</a>
+    <h1>Well... As I have said, nothing to see here.</h1>
+    <div class="haha">
+      <div id="test">a</div>
+    </div>
+    <div class="container"><h1 class="gradient">haha</h1></div>
+  </body>
 </html>
+
+<style>
+  html {
+    min-height: 300vh;
+  }
+
+  .haha {
+    position: relative;
+  }
+
+  #test {
+    width: 100%;
+    height: 40vh;
+    background-position: center;
+    background-color: steelblue;
+    background-size: cover;
+    background-image: url(../personal_page_html/img/gamer.jpg);
+    background-repeat: repeat;
+    background-attachment: fixed;
+  }
+
+  .container {
+    min-height: 200vh;
+    color: #5ca17c;
+    background: -webkit-linear-gradient(#26bda6, #ff9f65, #ded37e);
+    
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+
+    background-attachment: fixed;
+  }
+
+  .gradient {
+    margin-top: 100vh;
+    font-weight: 900;
+    font-size: 5em;
+  }
+</style>

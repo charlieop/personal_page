@@ -115,16 +115,20 @@ function nextMainIntro() {
 function fadeIn() {
   const fadeInItem = document.querySelectorAll(".fade-in");
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationName = "fade-in";
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: "10% 0px -10% 0px" });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationName = "fade-in";
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "10% 0px -10% 0px" }
+  );
 
   fadeInItem.forEach((item) => {
     observer.observe(item);
   });
 }
+
