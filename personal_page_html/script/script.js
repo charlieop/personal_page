@@ -9,6 +9,7 @@ function init() {
   changeCurrent();
   setTimeout(nextMainIntro, 5000);
   fadeIn();
+  timelineAnimation();
 }
 
 // disable scrolling when nav opens
@@ -128,6 +129,27 @@ function fadeIn() {
   );
 
   fadeInItem.forEach((item) => {
+    observer.observe(item);
+  });
+}
+
+function timelineAnimation() {
+  const timelineItem = document.querySelectorAll(".timeline-animation");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          console.log(entry.target);
+          entry.target.classList.add("animated")
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: "10% 0px -30% 0px" }
+  );
+
+  timelineItem.forEach((item) => {
     observer.observe(item);
   });
 }
