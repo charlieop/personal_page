@@ -140,7 +140,6 @@ function timelineAnimation() {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          console.log(entry.target);
           entry.target.classList.add("animated")
           observer.unobserve(entry.target);
         }

@@ -859,12 +859,23 @@ section h2 {
 
 .timeline-img {
   grid-area: img;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   border: var(--secondary-color) 3px solid;
   box-shadow: var(--grayed-font-color) 0px 2px 8px;
   background-color: var(--background-color);
+}
+
+.timeline-img > * {
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-position: center center;
+  object-fit: cover;
+  width: 90%;
 }
 
 .timeline-text::before {
@@ -895,6 +906,7 @@ section h2 {
   color: var(--primary-color);
   margin-bottom: 0.5rem;
   font-size: 1.1em;
+  text-wrap: balance;
 }
 
 .timeline-content {
