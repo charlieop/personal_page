@@ -870,7 +870,9 @@ section h2 {
   background-color: var(--background-color);
 }
 
-.timeline-img  * {
+.timeline-img img,
+.timeline-img svg,
+.timeline-img * {
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-position: center center;
