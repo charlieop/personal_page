@@ -417,7 +417,7 @@ main {
     ".  skills  ."
     ".  timeline  ."
     ".  projects  ."
-    ".  downloads  .";
+    ".  links  .";
   gap: 3rem;
   row-gap: 7rem;
 }
@@ -442,8 +442,8 @@ main {
   grid-area: projects;
 }
 
-.downloads {
-  grid-area: downloads;
+.links {
+  grid-area: links;
 }
 
 @media screen and (min-width: 800px) {
