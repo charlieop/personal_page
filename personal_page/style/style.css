@@ -1023,6 +1023,10 @@ section h2 {
     opacity: 1;
     transform: translateX(0);
   }
+  .timeline-item {
+    margin-top: 3rem;
+  }
+
 }
 
 /* 
