@@ -786,7 +786,7 @@ section h2 {
   -webkit-text-fill-color: transparent;
   text-fill-color: transparent;
   background-attachment: fixed;
-  padding-block: 3rem;
+  padding: 3rem 0 3rem 0;
 }
 
 /* selects only for firefox */
