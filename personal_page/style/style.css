@@ -82,6 +82,18 @@ a {
   animation: 1s ease-out forwards;
 }
 
+.link {
+  color: var(--primary-color);
+  font-weight: 900;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+
+.link:hover {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
 @keyframes fade-in {
   0% {
     transform: translatey(3rem);
@@ -486,6 +498,7 @@ section h2 {
   position: relative;
   padding: 3rem 0;
   height: clamp(10rem, calc(100svh - var(--nav-height) - 6px), 50rem);
+  min-height: 30rem;
 }
 
 .home h1 {
@@ -1026,11 +1039,23 @@ section h2 {
   .timeline-item {
     margin-top: 3rem;
   }
-
 }
 
+/* section {
+  display: none !important;
+}
+#projects {
+  display: block !important;
+} */
+
 /* 
-  Footer Secion
+  Projects Section
+*/
+
+
+
+/* 
+  Footer Section
 */
 footer {
   position: relative;
