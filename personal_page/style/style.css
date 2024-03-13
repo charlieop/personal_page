@@ -86,7 +86,7 @@ a {
   color: var(--primary-color);
   font-weight: 900;
   text-decoration: underline;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .link:hover {
@@ -1051,8 +1051,138 @@ section h2 {
 /* 
   Projects Section
 */
+#projects {
+  --_grid-gap: 3rem;
+}
 
+.project-items-grid {
+  margin-top: 2rem;
+  display: flex;
+  gap: var(--_grid-gap);
+  justify-content: center;
+}
 
+.project-col {
+  display: flex;
+  flex: 1 1 50%;
+  flex-direction: column;
+  gap: var(--_grid-gap);
+}
+
+.project-col.push {
+  padding-top: 25vh;
+}
+
+.project-item {
+  --_transition: all 0.2s ease-in-out;
+  box-shadow: 0 3px 0 var(--primary-color), 0 3px 1rem #03030322;
+  transition: var(--_transition);
+}
+
+.project-img {
+  overflow: hidden;
+}
+
+.project-item img {
+  width: 100%;
+
+  object-fit: contain;
+  transition: var(--_transition);
+  filter: grayscale(0.1) contrast(0.9);
+}
+
+.project-text {
+  background: var(--timeline-item-background);
+  padding: 2.5rem 2rem;
+  transition: var(--_transition);
+}
+
+.project-text h3 {
+  font-size: 1.8em;
+  color: var(--primary-color);
+  transition: var(--_transition);
+}
+
+.project-text p::before {
+  content: "";
+  display: inline-block;
+  width: 2ch;
+}
+.project-text p {
+  font-weight: var(--light-font-weight);
+  font-size: 1.05em;
+  margin-top: 1rem;
+  line-height: 1.5;
+  word-spacing: 0.1ch;
+}
+
+.project-item:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 0 var(--primary-color), 0 8px 1rem #03030357;
+}
+.project-item:hover img {
+  scale: 1.05;
+  filter: none;
+}
+.project-item:hover h3 {
+  transform: translateX(0.5rem);
+  filter: brightness(1.02);
+}
+
+@media screen and (max-width: 1200px) {
+  .project-text {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-text h3 {
+    font-size: 1.5em;
+  }
+
+  .project-text p::before {
+    width: 1.3ch;
+  }
+  .project-text p {
+    font-size: 1rem;
+    line-height: 1.3;
+    word-spacing: 0.5ch;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .project-items-grid {
+    flex-direction: column;
+  }
+  .project-text {
+    padding: 2rem 2.5rem;
+  }
+
+  .project-col.push {
+    padding-top: 0;
+  }
+}
+
+/* 
+  Links Section
+*/
+
+.link-item {
+  margin-bottom: 3rem;
+}
+
+.link-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.link-link {
+  font-size: 1.25rem;
+  margin: 0.5rem 2rem;
+}
+.link-link::before {
+  content: "👉";
+  margin-right: 0.5rem;
+
+}
 
 /* 
   Footer Section
