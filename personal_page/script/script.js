@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function init() {
-  // scrollLock();
+  scrollLock();
   stickNav();
   changeCurrent();
   setTimeout(nextMainIntro, 5000);
